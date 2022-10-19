@@ -1,0 +1,893 @@
+/* Machine-generated using Migen */
+module wb2native(
+	input [31:0] wishbone_port_adr,
+	input [31:0] wishbone_port_dat_w,
+	output reg [31:0] wishbone_port_dat_r,
+	input [3:0] wishbone_port_sel,
+	input wishbone_port_cyc,
+	input wishbone_port_stb,
+	output reg wishbone_port_ack,
+	input wishbone_port_we,
+	input [2:0] wishbone_port_cti,
+	input [1:0] wishbone_port_bte,
+	input wishbone_port_err,
+	output reg cmd_valid,
+	input cmd_ready,
+	input cmd_first,
+	input cmd_last,
+	output reg cmd_payload_we,
+	output reg [26:0] cmd_payload_addr,
+	output wdata_valid,
+	input wdata_ready,
+	output wdata_first,
+	output wdata_last,
+	output [255:0] wdata_payload_data,
+	output [31:0] wdata_payload_we,
+	input rdata_valid,
+	output rdata_ready,
+	input rdata_first,
+	input rdata_last,
+	input [255:0] rdata_payload_data,
+	input sys_clk,
+	input sys_rst
+);
+
+wire new_port_flush;
+reg new_port_cmd_valid;
+reg new_port_cmd_ready;
+wire new_port_cmd_last;
+wire new_port_cmd_payload_we;
+wire [29:0] new_port_cmd_payload_addr;
+reg new_port_wdata_valid;
+wire new_port_wdata_ready;
+reg new_port_wdata_first = 1'd0;
+reg new_port_wdata_last = 1'd0;
+wire [31:0] new_port_wdata_payload_data;
+wire [3:0] new_port_wdata_payload_we;
+reg new_port_rdata_valid;
+wire new_port_rdata_ready;
+reg [31:0] new_port_rdata_payload_data;
+reg [7:0] litedramnativeportconverter_sel = 8'd0;
+reg litedramnativeportconverter_cmd_buffer_sink_valid;
+wire litedramnativeportconverter_cmd_buffer_sink_ready;
+reg litedramnativeportconverter_cmd_buffer_sink_first = 1'd0;
+reg litedramnativeportconverter_cmd_buffer_sink_last = 1'd0;
+reg [7:0] litedramnativeportconverter_cmd_buffer_sink_payload_sel;
+reg litedramnativeportconverter_cmd_buffer_sink_payload_we;
+wire litedramnativeportconverter_cmd_buffer_source_valid;
+wire litedramnativeportconverter_cmd_buffer_source_ready;
+wire litedramnativeportconverter_cmd_buffer_source_first;
+wire litedramnativeportconverter_cmd_buffer_source_last;
+wire [7:0] litedramnativeportconverter_cmd_buffer_source_payload_sel;
+wire litedramnativeportconverter_cmd_buffer_source_payload_we;
+reg [29:0] litedramnativeportconverter_cmd_addr = 30'd0;
+reg litedramnativeportconverter_cmd_we = 1'd0;
+reg litedramnativeportconverter_cmd_last = 1'd0;
+wire litedramnativeportconverter_next_cmd;
+wire litedramnativeportconverter_addr_changed;
+wire litedramnativeportconverter_wdata_finished;
+reg litedramnativeportconverter_rdata_finished;
+reg litedramnativeportconverter_read_lock = 1'd0;
+reg litedramnativeportconverter_read_unlocked = 1'd0;
+wire litedramnativeportconverter_rw_collision;
+wire litedramnativeportconverter_rdata_fifo_sink_valid;
+wire litedramnativeportconverter_rdata_fifo_sink_ready;
+wire litedramnativeportconverter_rdata_fifo_sink_first;
+wire litedramnativeportconverter_rdata_fifo_sink_last;
+wire [255:0] litedramnativeportconverter_rdata_fifo_sink_payload_data;
+wire litedramnativeportconverter_rdata_fifo_source_valid;
+wire litedramnativeportconverter_rdata_fifo_source_ready;
+wire litedramnativeportconverter_rdata_fifo_source_first;
+wire litedramnativeportconverter_rdata_fifo_source_last;
+wire [255:0] litedramnativeportconverter_rdata_fifo_source_payload_data;
+wire litedramnativeportconverter_rdata_fifo_syncfifo_we;
+wire litedramnativeportconverter_rdata_fifo_syncfifo_writable;
+wire litedramnativeportconverter_rdata_fifo_syncfifo_re;
+wire litedramnativeportconverter_rdata_fifo_syncfifo_readable;
+wire [257:0] litedramnativeportconverter_rdata_fifo_syncfifo_din;
+wire [257:0] litedramnativeportconverter_rdata_fifo_syncfifo_dout;
+reg [2:0] litedramnativeportconverter_rdata_fifo_level = 3'd0;
+reg litedramnativeportconverter_rdata_fifo_replace = 1'd0;
+reg [2:0] litedramnativeportconverter_rdata_fifo_produce = 3'd0;
+reg [2:0] litedramnativeportconverter_rdata_fifo_consume = 3'd0;
+reg [2:0] litedramnativeportconverter_rdata_fifo_wrport_adr;
+wire [257:0] litedramnativeportconverter_rdata_fifo_wrport_dat_r;
+wire litedramnativeportconverter_rdata_fifo_wrport_we;
+wire [257:0] litedramnativeportconverter_rdata_fifo_wrport_dat_w;
+wire litedramnativeportconverter_rdata_fifo_do_read;
+wire [2:0] litedramnativeportconverter_rdata_fifo_rdport_adr;
+wire [257:0] litedramnativeportconverter_rdata_fifo_rdport_dat_r;
+wire [255:0] litedramnativeportconverter_rdata_fifo_fifo_in_payload_data;
+wire litedramnativeportconverter_rdata_fifo_fifo_in_first;
+wire litedramnativeportconverter_rdata_fifo_fifo_in_last;
+wire [255:0] litedramnativeportconverter_rdata_fifo_fifo_out_payload_data;
+wire litedramnativeportconverter_rdata_fifo_fifo_out_first;
+wire litedramnativeportconverter_rdata_fifo_fifo_out_last;
+wire litedramnativeportconverter_rdata_converter_sink_valid;
+wire litedramnativeportconverter_rdata_converter_sink_ready;
+wire litedramnativeportconverter_rdata_converter_sink_first;
+wire litedramnativeportconverter_rdata_converter_sink_last;
+wire [255:0] litedramnativeportconverter_rdata_converter_sink_payload_data;
+wire litedramnativeportconverter_rdata_converter_source_valid;
+reg litedramnativeportconverter_rdata_converter_source_ready;
+wire litedramnativeportconverter_rdata_converter_source_first;
+wire litedramnativeportconverter_rdata_converter_source_last;
+wire [31:0] litedramnativeportconverter_rdata_converter_source_payload_data;
+wire litedramnativeportconverter_rdata_converter_converter_sink_valid;
+wire litedramnativeportconverter_rdata_converter_converter_sink_ready;
+wire litedramnativeportconverter_rdata_converter_converter_sink_first;
+wire litedramnativeportconverter_rdata_converter_converter_sink_last;
+reg [255:0] litedramnativeportconverter_rdata_converter_converter_sink_payload_data;
+wire litedramnativeportconverter_rdata_converter_converter_source_valid;
+wire litedramnativeportconverter_rdata_converter_converter_source_ready;
+wire litedramnativeportconverter_rdata_converter_converter_source_first;
+wire litedramnativeportconverter_rdata_converter_converter_source_last;
+reg [31:0] litedramnativeportconverter_rdata_converter_converter_source_payload_data;
+wire litedramnativeportconverter_rdata_converter_converter_source_payload_valid_token_count;
+reg [2:0] litedramnativeportconverter_rdata_converter_converter_mux = 3'd0;
+wire litedramnativeportconverter_rdata_converter_converter_first;
+wire litedramnativeportconverter_rdata_converter_converter_last;
+wire litedramnativeportconverter_rdata_converter_source_source_valid;
+wire litedramnativeportconverter_rdata_converter_source_source_ready;
+wire litedramnativeportconverter_rdata_converter_source_source_first;
+wire litedramnativeportconverter_rdata_converter_source_source_last;
+wire [31:0] litedramnativeportconverter_rdata_converter_source_source_payload_data;
+reg [7:0] litedramnativeportconverter_rdata_chunk = 8'd1;
+wire litedramnativeportconverter_rdata_chunk_valid;
+wire litedramnativeportconverter_wdata_fifo_sink_valid;
+wire litedramnativeportconverter_wdata_fifo_sink_ready;
+wire litedramnativeportconverter_wdata_fifo_sink_first;
+wire litedramnativeportconverter_wdata_fifo_sink_last;
+wire [31:0] litedramnativeportconverter_wdata_fifo_sink_payload_data;
+wire [3:0] litedramnativeportconverter_wdata_fifo_sink_payload_we;
+wire litedramnativeportconverter_wdata_fifo_source_valid;
+reg litedramnativeportconverter_wdata_fifo_source_ready;
+wire litedramnativeportconverter_wdata_fifo_source_first;
+wire litedramnativeportconverter_wdata_fifo_source_last;
+wire [31:0] litedramnativeportconverter_wdata_fifo_source_payload_data;
+wire [3:0] litedramnativeportconverter_wdata_fifo_source_payload_we;
+wire litedramnativeportconverter_wdata_fifo_syncfifo_we;
+wire litedramnativeportconverter_wdata_fifo_syncfifo_writable;
+wire litedramnativeportconverter_wdata_fifo_syncfifo_re;
+wire litedramnativeportconverter_wdata_fifo_syncfifo_readable;
+wire [37:0] litedramnativeportconverter_wdata_fifo_syncfifo_din;
+wire [37:0] litedramnativeportconverter_wdata_fifo_syncfifo_dout;
+reg [2:0] litedramnativeportconverter_wdata_fifo_level = 3'd0;
+reg litedramnativeportconverter_wdata_fifo_replace = 1'd0;
+reg [2:0] litedramnativeportconverter_wdata_fifo_produce = 3'd0;
+reg [2:0] litedramnativeportconverter_wdata_fifo_consume = 3'd0;
+reg [2:0] litedramnativeportconverter_wdata_fifo_wrport_adr;
+wire [37:0] litedramnativeportconverter_wdata_fifo_wrport_dat_r;
+wire litedramnativeportconverter_wdata_fifo_wrport_we;
+wire [37:0] litedramnativeportconverter_wdata_fifo_wrport_dat_w;
+wire litedramnativeportconverter_wdata_fifo_do_read;
+wire [2:0] litedramnativeportconverter_wdata_fifo_rdport_adr;
+wire [37:0] litedramnativeportconverter_wdata_fifo_rdport_dat_r;
+wire [31:0] litedramnativeportconverter_wdata_fifo_fifo_in_payload_data;
+wire [3:0] litedramnativeportconverter_wdata_fifo_fifo_in_payload_we;
+wire litedramnativeportconverter_wdata_fifo_fifo_in_first;
+wire litedramnativeportconverter_wdata_fifo_fifo_in_last;
+wire [31:0] litedramnativeportconverter_wdata_fifo_fifo_out_payload_data;
+wire [3:0] litedramnativeportconverter_wdata_fifo_fifo_out_payload_we;
+wire litedramnativeportconverter_wdata_fifo_fifo_out_first;
+wire litedramnativeportconverter_wdata_fifo_fifo_out_last;
+wire litedramnativeportconverter_wdata_buffer_sink_valid;
+wire litedramnativeportconverter_wdata_buffer_sink_ready;
+reg litedramnativeportconverter_wdata_buffer_sink_first = 1'd0;
+reg litedramnativeportconverter_wdata_buffer_sink_last = 1'd0;
+wire [255:0] litedramnativeportconverter_wdata_buffer_sink_payload_data;
+wire [31:0] litedramnativeportconverter_wdata_buffer_sink_payload_we;
+reg litedramnativeportconverter_wdata_buffer_source_valid = 1'd0;
+wire litedramnativeportconverter_wdata_buffer_source_ready;
+reg litedramnativeportconverter_wdata_buffer_source_first = 1'd0;
+reg litedramnativeportconverter_wdata_buffer_source_last = 1'd0;
+reg [255:0] litedramnativeportconverter_wdata_buffer_source_payload_data = 256'd0;
+reg [31:0] litedramnativeportconverter_wdata_buffer_source_payload_we = 32'd0;
+reg litedramnativeportconverter_wdata_converter_sink_valid;
+wire litedramnativeportconverter_wdata_converter_sink_ready;
+reg litedramnativeportconverter_wdata_converter_sink_first = 1'd0;
+reg litedramnativeportconverter_wdata_converter_sink_last = 1'd0;
+reg [31:0] litedramnativeportconverter_wdata_converter_sink_payload_data;
+reg [3:0] litedramnativeportconverter_wdata_converter_sink_payload_we;
+wire litedramnativeportconverter_wdata_converter_source_valid;
+wire litedramnativeportconverter_wdata_converter_source_ready;
+wire litedramnativeportconverter_wdata_converter_source_first;
+wire litedramnativeportconverter_wdata_converter_source_last;
+reg [255:0] litedramnativeportconverter_wdata_converter_source_payload_data;
+reg [31:0] litedramnativeportconverter_wdata_converter_source_payload_we;
+wire litedramnativeportconverter_wdata_converter_converter_sink_valid;
+wire litedramnativeportconverter_wdata_converter_converter_sink_ready;
+wire litedramnativeportconverter_wdata_converter_converter_sink_first;
+wire litedramnativeportconverter_wdata_converter_converter_sink_last;
+wire [35:0] litedramnativeportconverter_wdata_converter_converter_sink_payload_data;
+wire litedramnativeportconverter_wdata_converter_converter_source_valid;
+wire litedramnativeportconverter_wdata_converter_converter_source_ready;
+reg litedramnativeportconverter_wdata_converter_converter_source_first = 1'd0;
+reg litedramnativeportconverter_wdata_converter_converter_source_last = 1'd0;
+reg [287:0] litedramnativeportconverter_wdata_converter_converter_source_payload_data = 288'd0;
+reg [3:0] litedramnativeportconverter_wdata_converter_converter_source_payload_valid_token_count = 4'd0;
+reg [2:0] litedramnativeportconverter_wdata_converter_converter_demux = 3'd0;
+wire litedramnativeportconverter_wdata_converter_converter_load_part;
+reg litedramnativeportconverter_wdata_converter_converter_strobe_all = 1'd0;
+wire litedramnativeportconverter_wdata_converter_source_source_valid;
+wire litedramnativeportconverter_wdata_converter_source_source_ready;
+wire litedramnativeportconverter_wdata_converter_source_source_first;
+wire litedramnativeportconverter_wdata_converter_source_source_last;
+wire [287:0] litedramnativeportconverter_wdata_converter_source_source_payload_data;
+reg [7:0] litedramnativeportconverter_wdata_chunk = 8'd1;
+wire litedramnativeportconverter_wdata_chunk_valid;
+reg [31:0] litedramnativeportconverter_wdata_sel = 32'd0;
+reg aborted = 1'd0;
+reg is_ongoing;
+reg [1:0] litedramnativeportconverter_state = 2'd0;
+reg [1:0] litedramnativeportconverter_next_state;
+reg [29:0] litedramnativeportconverter_cmd_addr_litedramnativeportconverter_next_value0;
+reg litedramnativeportconverter_cmd_addr_litedramnativeportconverter_next_value_ce0;
+reg litedramnativeportconverter_cmd_we_litedramnativeportconverter_next_value1;
+reg litedramnativeportconverter_cmd_we_litedramnativeportconverter_next_value_ce1;
+reg litedramnativeportconverter_cmd_last_litedramnativeportconverter_next_value2;
+reg litedramnativeportconverter_cmd_last_litedramnativeportconverter_next_value_ce2;
+reg [7:0] litedramnativeportconverter_sel_litedramnativeportconverter_next_value3;
+reg litedramnativeportconverter_sel_litedramnativeportconverter_next_value_ce3;
+reg [1:0] fsm_state = 2'd0;
+reg [1:0] fsm_next_state;
+reg aborted_fsm_next_value;
+reg aborted_fsm_next_value_ce;
+
+// synthesis translate_off
+reg dummy_s;
+initial dummy_s <= 1'd0;
+// synthesis translate_on
+
+assign new_port_cmd_payload_addr = (wishbone_port_adr - 29'd268435456);
+assign new_port_cmd_payload_we = wishbone_port_we;
+assign new_port_cmd_last = (~wishbone_port_we);
+assign new_port_flush = (~wishbone_port_cyc);
+
+// synthesis translate_off
+reg dummy_d;
+// synthesis translate_on
+always @(*) begin
+	new_port_wdata_valid <= 1'd0;
+	new_port_wdata_valid <= (wishbone_port_stb & wishbone_port_we);
+	if (1'd1) begin
+		if ((~is_ongoing)) begin
+			new_port_wdata_valid <= 1'd0;
+		end
+	end
+// synthesis translate_off
+	dummy_d <= dummy_s;
+// synthesis translate_on
+end
+assign new_port_wdata_payload_data = wishbone_port_dat_w;
+assign new_port_wdata_payload_we = wishbone_port_sel;
+assign new_port_rdata_ready = 1'd1;
+assign litedramnativeportconverter_cmd_buffer_source_ready = (litedramnativeportconverter_wdata_finished | litedramnativeportconverter_rdata_finished);
+assign litedramnativeportconverter_addr_changed = (litedramnativeportconverter_cmd_addr[29:3] != new_port_cmd_payload_addr[29:3]);
+assign litedramnativeportconverter_rw_collision = ((litedramnativeportconverter_cmd_we & (new_port_cmd_valid & (~new_port_cmd_payload_we))) & (~litedramnativeportconverter_addr_changed));
+assign litedramnativeportconverter_next_cmd = ((((litedramnativeportconverter_addr_changed | (litedramnativeportconverter_cmd_we != new_port_cmd_payload_we)) | (litedramnativeportconverter_sel == 8'd255)) | litedramnativeportconverter_cmd_last) | new_port_flush);
+assign litedramnativeportconverter_rdata_fifo_sink_valid = rdata_valid;
+assign rdata_ready = litedramnativeportconverter_rdata_fifo_sink_ready;
+assign litedramnativeportconverter_rdata_fifo_sink_first = rdata_first;
+assign litedramnativeportconverter_rdata_fifo_sink_last = rdata_last;
+assign litedramnativeportconverter_rdata_fifo_sink_payload_data = rdata_payload_data;
+assign litedramnativeportconverter_rdata_converter_sink_valid = litedramnativeportconverter_rdata_fifo_source_valid;
+assign litedramnativeportconverter_rdata_fifo_source_ready = litedramnativeportconverter_rdata_converter_sink_ready;
+assign litedramnativeportconverter_rdata_converter_sink_first = litedramnativeportconverter_rdata_fifo_source_first;
+assign litedramnativeportconverter_rdata_converter_sink_last = litedramnativeportconverter_rdata_fifo_source_last;
+assign litedramnativeportconverter_rdata_converter_sink_payload_data = litedramnativeportconverter_rdata_fifo_source_payload_data;
+assign litedramnativeportconverter_rdata_chunk_valid = ((litedramnativeportconverter_cmd_buffer_source_payload_sel & litedramnativeportconverter_rdata_chunk) != 1'd0);
+
+// synthesis translate_off
+reg dummy_d_1;
+// synthesis translate_on
+always @(*) begin
+	new_port_rdata_valid <= 1'd0;
+	new_port_rdata_payload_data <= 32'd0;
+	litedramnativeportconverter_rdata_finished <= 1'd0;
+	litedramnativeportconverter_rdata_converter_source_ready <= 1'd0;
+	if ((litedramnativeportconverter_cmd_buffer_source_valid & (~litedramnativeportconverter_cmd_buffer_source_payload_we))) begin
+		if (litedramnativeportconverter_rdata_chunk_valid) begin
+			new_port_rdata_valid <= litedramnativeportconverter_rdata_converter_source_valid;
+			new_port_rdata_payload_data <= litedramnativeportconverter_rdata_converter_source_payload_data;
+			litedramnativeportconverter_rdata_converter_source_ready <= new_port_rdata_ready;
+		end else begin
+			litedramnativeportconverter_rdata_converter_source_ready <= 1'd1;
+		end
+		litedramnativeportconverter_rdata_finished <= ((litedramnativeportconverter_rdata_converter_source_valid & litedramnativeportconverter_rdata_converter_source_ready) & litedramnativeportconverter_rdata_chunk[7]);
+	end
+// synthesis translate_off
+	dummy_d_1 <= dummy_s;
+// synthesis translate_on
+end
+assign litedramnativeportconverter_wdata_fifo_sink_valid = new_port_wdata_valid;
+assign new_port_wdata_ready = litedramnativeportconverter_wdata_fifo_sink_ready;
+assign litedramnativeportconverter_wdata_fifo_sink_first = new_port_wdata_first;
+assign litedramnativeportconverter_wdata_fifo_sink_last = new_port_wdata_last;
+assign litedramnativeportconverter_wdata_fifo_sink_payload_data = new_port_wdata_payload_data;
+assign litedramnativeportconverter_wdata_fifo_sink_payload_we = new_port_wdata_payload_we;
+assign wdata_valid = litedramnativeportconverter_wdata_buffer_source_valid;
+assign litedramnativeportconverter_wdata_buffer_source_ready = wdata_ready;
+assign wdata_first = litedramnativeportconverter_wdata_buffer_source_first;
+assign wdata_last = litedramnativeportconverter_wdata_buffer_source_last;
+assign wdata_payload_data = litedramnativeportconverter_wdata_buffer_source_payload_data;
+assign wdata_payload_we = litedramnativeportconverter_wdata_buffer_source_payload_we;
+assign litedramnativeportconverter_wdata_chunk_valid = ((litedramnativeportconverter_cmd_buffer_source_payload_sel & litedramnativeportconverter_wdata_chunk) != 1'd0);
+
+// synthesis translate_off
+reg dummy_d_2;
+// synthesis translate_on
+always @(*) begin
+	litedramnativeportconverter_wdata_fifo_source_ready <= 1'd0;
+	litedramnativeportconverter_wdata_converter_sink_valid <= 1'd0;
+	litedramnativeportconverter_wdata_converter_sink_payload_data <= 32'd0;
+	litedramnativeportconverter_wdata_converter_sink_payload_we <= 4'd0;
+	if ((litedramnativeportconverter_cmd_buffer_source_valid & litedramnativeportconverter_cmd_buffer_source_payload_we)) begin
+		if (litedramnativeportconverter_wdata_chunk_valid) begin
+			litedramnativeportconverter_wdata_converter_sink_valid <= litedramnativeportconverter_wdata_fifo_source_valid;
+			litedramnativeportconverter_wdata_converter_sink_payload_data <= litedramnativeportconverter_wdata_fifo_source_payload_data;
+			litedramnativeportconverter_wdata_converter_sink_payload_we <= litedramnativeportconverter_wdata_fifo_source_payload_we;
+			litedramnativeportconverter_wdata_fifo_source_ready <= litedramnativeportconverter_wdata_converter_sink_ready;
+		end else begin
+			litedramnativeportconverter_wdata_converter_sink_valid <= 1'd1;
+		end
+	end
+// synthesis translate_off
+	dummy_d_2 <= dummy_s;
+// synthesis translate_on
+end
+assign litedramnativeportconverter_wdata_buffer_sink_valid = litedramnativeportconverter_wdata_converter_source_valid;
+assign litedramnativeportconverter_wdata_buffer_sink_payload_data = litedramnativeportconverter_wdata_converter_source_payload_data;
+assign litedramnativeportconverter_wdata_buffer_sink_payload_we = (litedramnativeportconverter_wdata_converter_source_payload_we & litedramnativeportconverter_wdata_sel);
+assign litedramnativeportconverter_wdata_converter_source_ready = litedramnativeportconverter_wdata_buffer_sink_ready;
+assign litedramnativeportconverter_wdata_finished = ((litedramnativeportconverter_wdata_converter_sink_valid & litedramnativeportconverter_wdata_converter_sink_ready) & litedramnativeportconverter_wdata_chunk[7]);
+assign litedramnativeportconverter_cmd_buffer_source_valid = litedramnativeportconverter_cmd_buffer_sink_valid;
+assign litedramnativeportconverter_cmd_buffer_sink_ready = litedramnativeportconverter_cmd_buffer_source_ready;
+assign litedramnativeportconverter_cmd_buffer_source_first = litedramnativeportconverter_cmd_buffer_sink_first;
+assign litedramnativeportconverter_cmd_buffer_source_last = litedramnativeportconverter_cmd_buffer_sink_last;
+assign litedramnativeportconverter_cmd_buffer_source_payload_sel = litedramnativeportconverter_cmd_buffer_sink_payload_sel;
+assign litedramnativeportconverter_cmd_buffer_source_payload_we = litedramnativeportconverter_cmd_buffer_sink_payload_we;
+
+// synthesis translate_off
+reg dummy_d_3;
+// synthesis translate_on
+always @(*) begin
+	cmd_valid <= 1'd0;
+	cmd_payload_we <= 1'd0;
+	cmd_payload_addr <= 27'd0;
+	new_port_cmd_ready <= 1'd0;
+	litedramnativeportconverter_cmd_buffer_sink_valid <= 1'd0;
+	litedramnativeportconverter_cmd_buffer_sink_payload_sel <= 8'd0;
+	litedramnativeportconverter_cmd_buffer_sink_payload_we <= 1'd0;
+	litedramnativeportconverter_next_state <= 2'd0;
+	litedramnativeportconverter_cmd_addr_litedramnativeportconverter_next_value0 <= 30'd0;
+	litedramnativeportconverter_cmd_addr_litedramnativeportconverter_next_value_ce0 <= 1'd0;
+	litedramnativeportconverter_cmd_we_litedramnativeportconverter_next_value1 <= 1'd0;
+	litedramnativeportconverter_cmd_we_litedramnativeportconverter_next_value_ce1 <= 1'd0;
+	litedramnativeportconverter_cmd_last_litedramnativeportconverter_next_value2 <= 1'd0;
+	litedramnativeportconverter_cmd_last_litedramnativeportconverter_next_value_ce2 <= 1'd0;
+	litedramnativeportconverter_sel_litedramnativeportconverter_next_value3 <= 8'd0;
+	litedramnativeportconverter_sel_litedramnativeportconverter_next_value_ce3 <= 1'd0;
+	litedramnativeportconverter_next_state <= litedramnativeportconverter_state;
+	case (litedramnativeportconverter_state)
+		1'd1: begin
+			cmd_valid <= 1'd1;
+			cmd_payload_we <= litedramnativeportconverter_cmd_we;
+			cmd_payload_addr <= litedramnativeportconverter_cmd_addr[29:3];
+			if (cmd_ready) begin
+				if (litedramnativeportconverter_cmd_we) begin
+					litedramnativeportconverter_next_state <= 1'd0;
+				end else begin
+					litedramnativeportconverter_next_state <= 2'd2;
+				end
+			end
+		end
+		2'd2: begin
+			if (litedramnativeportconverter_next_cmd) begin
+				litedramnativeportconverter_next_state <= 2'd3;
+			end else begin
+				new_port_cmd_ready <= new_port_cmd_valid;
+				litedramnativeportconverter_cmd_last_litedramnativeportconverter_next_value2 <= new_port_cmd_last;
+				litedramnativeportconverter_cmd_last_litedramnativeportconverter_next_value_ce2 <= 1'd1;
+				if (new_port_cmd_valid) begin
+					litedramnativeportconverter_sel_litedramnativeportconverter_next_value3 <= (litedramnativeportconverter_sel | (1'd1 <<< new_port_cmd_payload_addr[2:0]));
+					litedramnativeportconverter_sel_litedramnativeportconverter_next_value_ce3 <= 1'd1;
+				end
+			end
+		end
+		2'd3: begin
+			litedramnativeportconverter_cmd_buffer_sink_valid <= 1'd1;
+			litedramnativeportconverter_cmd_buffer_sink_payload_sel <= litedramnativeportconverter_sel;
+			litedramnativeportconverter_cmd_buffer_sink_payload_we <= litedramnativeportconverter_cmd_we;
+			if (litedramnativeportconverter_cmd_buffer_sink_ready) begin
+				if (litedramnativeportconverter_cmd_we) begin
+					litedramnativeportconverter_next_state <= 1'd1;
+				end else begin
+					litedramnativeportconverter_next_state <= 1'd0;
+				end
+			end
+		end
+		default: begin
+			new_port_cmd_ready <= (new_port_cmd_valid & (~litedramnativeportconverter_read_lock));
+			if (new_port_cmd_ready) begin
+				litedramnativeportconverter_cmd_addr_litedramnativeportconverter_next_value0 <= new_port_cmd_payload_addr;
+				litedramnativeportconverter_cmd_addr_litedramnativeportconverter_next_value_ce0 <= 1'd1;
+				litedramnativeportconverter_cmd_we_litedramnativeportconverter_next_value1 <= new_port_cmd_payload_we;
+				litedramnativeportconverter_cmd_we_litedramnativeportconverter_next_value_ce1 <= 1'd1;
+				litedramnativeportconverter_cmd_last_litedramnativeportconverter_next_value2 <= new_port_cmd_last;
+				litedramnativeportconverter_cmd_last_litedramnativeportconverter_next_value_ce2 <= 1'd1;
+				litedramnativeportconverter_sel_litedramnativeportconverter_next_value3 <= (1'd1 <<< new_port_cmd_payload_addr[2:0]);
+				litedramnativeportconverter_sel_litedramnativeportconverter_next_value_ce3 <= 1'd1;
+				if (new_port_cmd_payload_we) begin
+					litedramnativeportconverter_next_state <= 2'd2;
+				end else begin
+					litedramnativeportconverter_next_state <= 1'd1;
+				end
+			end
+		end
+	endcase
+// synthesis translate_off
+	dummy_d_3 <= dummy_s;
+// synthesis translate_on
+end
+assign litedramnativeportconverter_rdata_fifo_syncfifo_din = {litedramnativeportconverter_rdata_fifo_fifo_in_last, litedramnativeportconverter_rdata_fifo_fifo_in_first, litedramnativeportconverter_rdata_fifo_fifo_in_payload_data};
+assign {litedramnativeportconverter_rdata_fifo_fifo_out_last, litedramnativeportconverter_rdata_fifo_fifo_out_first, litedramnativeportconverter_rdata_fifo_fifo_out_payload_data} = litedramnativeportconverter_rdata_fifo_syncfifo_dout;
+assign litedramnativeportconverter_rdata_fifo_sink_ready = litedramnativeportconverter_rdata_fifo_syncfifo_writable;
+assign litedramnativeportconverter_rdata_fifo_syncfifo_we = litedramnativeportconverter_rdata_fifo_sink_valid;
+assign litedramnativeportconverter_rdata_fifo_fifo_in_first = litedramnativeportconverter_rdata_fifo_sink_first;
+assign litedramnativeportconverter_rdata_fifo_fifo_in_last = litedramnativeportconverter_rdata_fifo_sink_last;
+assign litedramnativeportconverter_rdata_fifo_fifo_in_payload_data = litedramnativeportconverter_rdata_fifo_sink_payload_data;
+assign litedramnativeportconverter_rdata_fifo_source_valid = litedramnativeportconverter_rdata_fifo_syncfifo_readable;
+assign litedramnativeportconverter_rdata_fifo_source_first = litedramnativeportconverter_rdata_fifo_fifo_out_first;
+assign litedramnativeportconverter_rdata_fifo_source_last = litedramnativeportconverter_rdata_fifo_fifo_out_last;
+assign litedramnativeportconverter_rdata_fifo_source_payload_data = litedramnativeportconverter_rdata_fifo_fifo_out_payload_data;
+assign litedramnativeportconverter_rdata_fifo_syncfifo_re = litedramnativeportconverter_rdata_fifo_source_ready;
+
+// synthesis translate_off
+reg dummy_d_4;
+// synthesis translate_on
+always @(*) begin
+	litedramnativeportconverter_rdata_fifo_wrport_adr <= 3'd0;
+	if (litedramnativeportconverter_rdata_fifo_replace) begin
+		litedramnativeportconverter_rdata_fifo_wrport_adr <= (litedramnativeportconverter_rdata_fifo_produce - 1'd1);
+	end else begin
+		litedramnativeportconverter_rdata_fifo_wrport_adr <= litedramnativeportconverter_rdata_fifo_produce;
+	end
+// synthesis translate_off
+	dummy_d_4 <= dummy_s;
+// synthesis translate_on
+end
+assign litedramnativeportconverter_rdata_fifo_wrport_dat_w = litedramnativeportconverter_rdata_fifo_syncfifo_din;
+assign litedramnativeportconverter_rdata_fifo_wrport_we = (litedramnativeportconverter_rdata_fifo_syncfifo_we & (litedramnativeportconverter_rdata_fifo_syncfifo_writable | litedramnativeportconverter_rdata_fifo_replace));
+assign litedramnativeportconverter_rdata_fifo_do_read = (litedramnativeportconverter_rdata_fifo_syncfifo_readable & litedramnativeportconverter_rdata_fifo_syncfifo_re);
+assign litedramnativeportconverter_rdata_fifo_rdport_adr = litedramnativeportconverter_rdata_fifo_consume;
+assign litedramnativeportconverter_rdata_fifo_syncfifo_dout = litedramnativeportconverter_rdata_fifo_rdport_dat_r;
+assign litedramnativeportconverter_rdata_fifo_syncfifo_writable = (litedramnativeportconverter_rdata_fifo_level != 3'd7);
+assign litedramnativeportconverter_rdata_fifo_syncfifo_readable = (litedramnativeportconverter_rdata_fifo_level != 1'd0);
+assign litedramnativeportconverter_rdata_converter_converter_sink_valid = litedramnativeportconverter_rdata_converter_sink_valid;
+assign litedramnativeportconverter_rdata_converter_converter_sink_first = litedramnativeportconverter_rdata_converter_sink_first;
+assign litedramnativeportconverter_rdata_converter_converter_sink_last = litedramnativeportconverter_rdata_converter_sink_last;
+assign litedramnativeportconverter_rdata_converter_sink_ready = litedramnativeportconverter_rdata_converter_converter_sink_ready;
+
+// synthesis translate_off
+reg dummy_d_5;
+// synthesis translate_on
+always @(*) begin
+	litedramnativeportconverter_rdata_converter_converter_sink_payload_data <= 256'd0;
+	litedramnativeportconverter_rdata_converter_converter_sink_payload_data[31:0] <= litedramnativeportconverter_rdata_converter_sink_payload_data[31:0];
+	litedramnativeportconverter_rdata_converter_converter_sink_payload_data[63:32] <= litedramnativeportconverter_rdata_converter_sink_payload_data[63:32];
+	litedramnativeportconverter_rdata_converter_converter_sink_payload_data[95:64] <= litedramnativeportconverter_rdata_converter_sink_payload_data[95:64];
+	litedramnativeportconverter_rdata_converter_converter_sink_payload_data[127:96] <= litedramnativeportconverter_rdata_converter_sink_payload_data[127:96];
+	litedramnativeportconverter_rdata_converter_converter_sink_payload_data[159:128] <= litedramnativeportconverter_rdata_converter_sink_payload_data[159:128];
+	litedramnativeportconverter_rdata_converter_converter_sink_payload_data[191:160] <= litedramnativeportconverter_rdata_converter_sink_payload_data[191:160];
+	litedramnativeportconverter_rdata_converter_converter_sink_payload_data[223:192] <= litedramnativeportconverter_rdata_converter_sink_payload_data[223:192];
+	litedramnativeportconverter_rdata_converter_converter_sink_payload_data[255:224] <= litedramnativeportconverter_rdata_converter_sink_payload_data[255:224];
+// synthesis translate_off
+	dummy_d_5 <= dummy_s;
+// synthesis translate_on
+end
+assign litedramnativeportconverter_rdata_converter_source_valid = litedramnativeportconverter_rdata_converter_source_source_valid;
+assign litedramnativeportconverter_rdata_converter_source_first = litedramnativeportconverter_rdata_converter_source_source_first;
+assign litedramnativeportconverter_rdata_converter_source_last = litedramnativeportconverter_rdata_converter_source_source_last;
+assign litedramnativeportconverter_rdata_converter_source_source_ready = litedramnativeportconverter_rdata_converter_source_ready;
+assign {litedramnativeportconverter_rdata_converter_source_payload_data} = litedramnativeportconverter_rdata_converter_source_source_payload_data;
+assign litedramnativeportconverter_rdata_converter_source_source_valid = litedramnativeportconverter_rdata_converter_converter_source_valid;
+assign litedramnativeportconverter_rdata_converter_converter_source_ready = litedramnativeportconverter_rdata_converter_source_source_ready;
+assign litedramnativeportconverter_rdata_converter_source_source_first = litedramnativeportconverter_rdata_converter_converter_source_first;
+assign litedramnativeportconverter_rdata_converter_source_source_last = litedramnativeportconverter_rdata_converter_converter_source_last;
+assign litedramnativeportconverter_rdata_converter_source_source_payload_data = litedramnativeportconverter_rdata_converter_converter_source_payload_data;
+assign litedramnativeportconverter_rdata_converter_converter_first = (litedramnativeportconverter_rdata_converter_converter_mux == 1'd0);
+assign litedramnativeportconverter_rdata_converter_converter_last = (litedramnativeportconverter_rdata_converter_converter_mux == 3'd7);
+assign litedramnativeportconverter_rdata_converter_converter_source_valid = litedramnativeportconverter_rdata_converter_converter_sink_valid;
+assign litedramnativeportconverter_rdata_converter_converter_source_first = (litedramnativeportconverter_rdata_converter_converter_sink_first & litedramnativeportconverter_rdata_converter_converter_first);
+assign litedramnativeportconverter_rdata_converter_converter_source_last = (litedramnativeportconverter_rdata_converter_converter_sink_last & litedramnativeportconverter_rdata_converter_converter_last);
+assign litedramnativeportconverter_rdata_converter_converter_sink_ready = (litedramnativeportconverter_rdata_converter_converter_last & litedramnativeportconverter_rdata_converter_converter_source_ready);
+
+// synthesis translate_off
+reg dummy_d_6;
+// synthesis translate_on
+always @(*) begin
+	litedramnativeportconverter_rdata_converter_converter_source_payload_data <= 32'd0;
+	case (litedramnativeportconverter_rdata_converter_converter_mux)
+		1'd0: begin
+			litedramnativeportconverter_rdata_converter_converter_source_payload_data <= litedramnativeportconverter_rdata_converter_converter_sink_payload_data[31:0];
+		end
+		1'd1: begin
+			litedramnativeportconverter_rdata_converter_converter_source_payload_data <= litedramnativeportconverter_rdata_converter_converter_sink_payload_data[63:32];
+		end
+		2'd2: begin
+			litedramnativeportconverter_rdata_converter_converter_source_payload_data <= litedramnativeportconverter_rdata_converter_converter_sink_payload_data[95:64];
+		end
+		2'd3: begin
+			litedramnativeportconverter_rdata_converter_converter_source_payload_data <= litedramnativeportconverter_rdata_converter_converter_sink_payload_data[127:96];
+		end
+		3'd4: begin
+			litedramnativeportconverter_rdata_converter_converter_source_payload_data <= litedramnativeportconverter_rdata_converter_converter_sink_payload_data[159:128];
+		end
+		3'd5: begin
+			litedramnativeportconverter_rdata_converter_converter_source_payload_data <= litedramnativeportconverter_rdata_converter_converter_sink_payload_data[191:160];
+		end
+		3'd6: begin
+			litedramnativeportconverter_rdata_converter_converter_source_payload_data <= litedramnativeportconverter_rdata_converter_converter_sink_payload_data[223:192];
+		end
+		default: begin
+			litedramnativeportconverter_rdata_converter_converter_source_payload_data <= litedramnativeportconverter_rdata_converter_converter_sink_payload_data[255:224];
+		end
+	endcase
+// synthesis translate_off
+	dummy_d_6 <= dummy_s;
+// synthesis translate_on
+end
+assign litedramnativeportconverter_rdata_converter_converter_source_payload_valid_token_count = litedramnativeportconverter_rdata_converter_converter_last;
+assign litedramnativeportconverter_wdata_converter_converter_sink_valid = litedramnativeportconverter_wdata_converter_sink_valid;
+assign litedramnativeportconverter_wdata_converter_converter_sink_first = litedramnativeportconverter_wdata_converter_sink_first;
+assign litedramnativeportconverter_wdata_converter_converter_sink_last = litedramnativeportconverter_wdata_converter_sink_last;
+assign litedramnativeportconverter_wdata_converter_sink_ready = litedramnativeportconverter_wdata_converter_converter_sink_ready;
+assign litedramnativeportconverter_wdata_converter_converter_sink_payload_data = {litedramnativeportconverter_wdata_converter_sink_payload_we, litedramnativeportconverter_wdata_converter_sink_payload_data};
+assign litedramnativeportconverter_wdata_converter_source_valid = litedramnativeportconverter_wdata_converter_source_source_valid;
+assign litedramnativeportconverter_wdata_converter_source_first = litedramnativeportconverter_wdata_converter_source_source_first;
+assign litedramnativeportconverter_wdata_converter_source_last = litedramnativeportconverter_wdata_converter_source_source_last;
+assign litedramnativeportconverter_wdata_converter_source_source_ready = litedramnativeportconverter_wdata_converter_source_ready;
+
+// synthesis translate_off
+reg dummy_d_7;
+// synthesis translate_on
+always @(*) begin
+	litedramnativeportconverter_wdata_converter_source_payload_data <= 256'd0;
+	litedramnativeportconverter_wdata_converter_source_payload_data[31:0] <= litedramnativeportconverter_wdata_converter_source_source_payload_data[31:0];
+	litedramnativeportconverter_wdata_converter_source_payload_data[63:32] <= litedramnativeportconverter_wdata_converter_source_source_payload_data[67:36];
+	litedramnativeportconverter_wdata_converter_source_payload_data[95:64] <= litedramnativeportconverter_wdata_converter_source_source_payload_data[103:72];
+	litedramnativeportconverter_wdata_converter_source_payload_data[127:96] <= litedramnativeportconverter_wdata_converter_source_source_payload_data[139:108];
+	litedramnativeportconverter_wdata_converter_source_payload_data[159:128] <= litedramnativeportconverter_wdata_converter_source_source_payload_data[175:144];
+	litedramnativeportconverter_wdata_converter_source_payload_data[191:160] <= litedramnativeportconverter_wdata_converter_source_source_payload_data[211:180];
+	litedramnativeportconverter_wdata_converter_source_payload_data[223:192] <= litedramnativeportconverter_wdata_converter_source_source_payload_data[247:216];
+	litedramnativeportconverter_wdata_converter_source_payload_data[255:224] <= litedramnativeportconverter_wdata_converter_source_source_payload_data[283:252];
+// synthesis translate_off
+	dummy_d_7 <= dummy_s;
+// synthesis translate_on
+end
+
+// synthesis translate_off
+reg dummy_d_8;
+// synthesis translate_on
+always @(*) begin
+	litedramnativeportconverter_wdata_converter_source_payload_we <= 32'd0;
+	litedramnativeportconverter_wdata_converter_source_payload_we[3:0] <= litedramnativeportconverter_wdata_converter_source_source_payload_data[35:32];
+	litedramnativeportconverter_wdata_converter_source_payload_we[7:4] <= litedramnativeportconverter_wdata_converter_source_source_payload_data[71:68];
+	litedramnativeportconverter_wdata_converter_source_payload_we[11:8] <= litedramnativeportconverter_wdata_converter_source_source_payload_data[107:104];
+	litedramnativeportconverter_wdata_converter_source_payload_we[15:12] <= litedramnativeportconverter_wdata_converter_source_source_payload_data[143:140];
+	litedramnativeportconverter_wdata_converter_source_payload_we[19:16] <= litedramnativeportconverter_wdata_converter_source_source_payload_data[179:176];
+	litedramnativeportconverter_wdata_converter_source_payload_we[23:20] <= litedramnativeportconverter_wdata_converter_source_source_payload_data[215:212];
+	litedramnativeportconverter_wdata_converter_source_payload_we[27:24] <= litedramnativeportconverter_wdata_converter_source_source_payload_data[251:248];
+	litedramnativeportconverter_wdata_converter_source_payload_we[31:28] <= litedramnativeportconverter_wdata_converter_source_source_payload_data[287:284];
+// synthesis translate_off
+	dummy_d_8 <= dummy_s;
+// synthesis translate_on
+end
+assign litedramnativeportconverter_wdata_converter_source_source_valid = litedramnativeportconverter_wdata_converter_converter_source_valid;
+assign litedramnativeportconverter_wdata_converter_converter_source_ready = litedramnativeportconverter_wdata_converter_source_source_ready;
+assign litedramnativeportconverter_wdata_converter_source_source_first = litedramnativeportconverter_wdata_converter_converter_source_first;
+assign litedramnativeportconverter_wdata_converter_source_source_last = litedramnativeportconverter_wdata_converter_converter_source_last;
+assign litedramnativeportconverter_wdata_converter_source_source_payload_data = litedramnativeportconverter_wdata_converter_converter_source_payload_data;
+assign litedramnativeportconverter_wdata_converter_converter_sink_ready = ((~litedramnativeportconverter_wdata_converter_converter_strobe_all) | litedramnativeportconverter_wdata_converter_converter_source_ready);
+assign litedramnativeportconverter_wdata_converter_converter_source_valid = litedramnativeportconverter_wdata_converter_converter_strobe_all;
+assign litedramnativeportconverter_wdata_converter_converter_load_part = (litedramnativeportconverter_wdata_converter_converter_sink_valid & litedramnativeportconverter_wdata_converter_converter_sink_ready);
+assign litedramnativeportconverter_wdata_fifo_syncfifo_din = {litedramnativeportconverter_wdata_fifo_fifo_in_last, litedramnativeportconverter_wdata_fifo_fifo_in_first, litedramnativeportconverter_wdata_fifo_fifo_in_payload_we, litedramnativeportconverter_wdata_fifo_fifo_in_payload_data};
+assign {litedramnativeportconverter_wdata_fifo_fifo_out_last, litedramnativeportconverter_wdata_fifo_fifo_out_first, litedramnativeportconverter_wdata_fifo_fifo_out_payload_we, litedramnativeportconverter_wdata_fifo_fifo_out_payload_data} = litedramnativeportconverter_wdata_fifo_syncfifo_dout;
+assign litedramnativeportconverter_wdata_fifo_sink_ready = litedramnativeportconverter_wdata_fifo_syncfifo_writable;
+assign litedramnativeportconverter_wdata_fifo_syncfifo_we = litedramnativeportconverter_wdata_fifo_sink_valid;
+assign litedramnativeportconverter_wdata_fifo_fifo_in_first = litedramnativeportconverter_wdata_fifo_sink_first;
+assign litedramnativeportconverter_wdata_fifo_fifo_in_last = litedramnativeportconverter_wdata_fifo_sink_last;
+assign litedramnativeportconverter_wdata_fifo_fifo_in_payload_data = litedramnativeportconverter_wdata_fifo_sink_payload_data;
+assign litedramnativeportconverter_wdata_fifo_fifo_in_payload_we = litedramnativeportconverter_wdata_fifo_sink_payload_we;
+assign litedramnativeportconverter_wdata_fifo_source_valid = litedramnativeportconverter_wdata_fifo_syncfifo_readable;
+assign litedramnativeportconverter_wdata_fifo_source_first = litedramnativeportconverter_wdata_fifo_fifo_out_first;
+assign litedramnativeportconverter_wdata_fifo_source_last = litedramnativeportconverter_wdata_fifo_fifo_out_last;
+assign litedramnativeportconverter_wdata_fifo_source_payload_data = litedramnativeportconverter_wdata_fifo_fifo_out_payload_data;
+assign litedramnativeportconverter_wdata_fifo_source_payload_we = litedramnativeportconverter_wdata_fifo_fifo_out_payload_we;
+assign litedramnativeportconverter_wdata_fifo_syncfifo_re = litedramnativeportconverter_wdata_fifo_source_ready;
+
+// synthesis translate_off
+reg dummy_d_9;
+// synthesis translate_on
+always @(*) begin
+	litedramnativeportconverter_wdata_fifo_wrport_adr <= 3'd0;
+	if (litedramnativeportconverter_wdata_fifo_replace) begin
+		litedramnativeportconverter_wdata_fifo_wrport_adr <= (litedramnativeportconverter_wdata_fifo_produce - 1'd1);
+	end else begin
+		litedramnativeportconverter_wdata_fifo_wrport_adr <= litedramnativeportconverter_wdata_fifo_produce;
+	end
+// synthesis translate_off
+	dummy_d_9 <= dummy_s;
+// synthesis translate_on
+end
+assign litedramnativeportconverter_wdata_fifo_wrport_dat_w = litedramnativeportconverter_wdata_fifo_syncfifo_din;
+assign litedramnativeportconverter_wdata_fifo_wrport_we = (litedramnativeportconverter_wdata_fifo_syncfifo_we & (litedramnativeportconverter_wdata_fifo_syncfifo_writable | litedramnativeportconverter_wdata_fifo_replace));
+assign litedramnativeportconverter_wdata_fifo_do_read = (litedramnativeportconverter_wdata_fifo_syncfifo_readable & litedramnativeportconverter_wdata_fifo_syncfifo_re);
+assign litedramnativeportconverter_wdata_fifo_rdport_adr = litedramnativeportconverter_wdata_fifo_consume;
+assign litedramnativeportconverter_wdata_fifo_syncfifo_dout = litedramnativeportconverter_wdata_fifo_rdport_dat_r;
+assign litedramnativeportconverter_wdata_fifo_syncfifo_writable = (litedramnativeportconverter_wdata_fifo_level != 3'd7);
+assign litedramnativeportconverter_wdata_fifo_syncfifo_readable = (litedramnativeportconverter_wdata_fifo_level != 1'd0);
+assign litedramnativeportconverter_wdata_buffer_sink_ready = ((~litedramnativeportconverter_wdata_buffer_source_valid) | litedramnativeportconverter_wdata_buffer_source_ready);
+
+// synthesis translate_off
+reg dummy_d_10;
+// synthesis translate_on
+always @(*) begin
+	wishbone_port_dat_r <= 32'd0;
+	wishbone_port_ack <= 1'd0;
+	new_port_cmd_valid <= 1'd0;
+	is_ongoing <= 1'd0;
+	fsm_next_state <= 2'd0;
+	aborted_fsm_next_value <= 1'd0;
+	aborted_fsm_next_value_ce <= 1'd0;
+	fsm_next_state <= fsm_state;
+	case (fsm_state)
+		1'd1: begin
+			is_ongoing <= 1'd1;
+			aborted_fsm_next_value <= ((~wishbone_port_cyc) | aborted);
+			aborted_fsm_next_value_ce <= 1'd1;
+			if ((new_port_wdata_valid & new_port_wdata_ready)) begin
+				wishbone_port_ack <= (wishbone_port_cyc & (~aborted));
+				fsm_next_state <= 1'd0;
+			end
+		end
+		2'd2: begin
+			aborted_fsm_next_value <= ((~wishbone_port_cyc) | aborted);
+			aborted_fsm_next_value_ce <= 1'd1;
+			if (new_port_rdata_valid) begin
+				wishbone_port_ack <= (wishbone_port_cyc & (~aborted));
+				wishbone_port_dat_r <= new_port_rdata_payload_data;
+				fsm_next_state <= 1'd0;
+			end
+		end
+		default: begin
+			new_port_cmd_valid <= (wishbone_port_cyc & wishbone_port_stb);
+			if (((new_port_cmd_valid & new_port_cmd_ready) & wishbone_port_we)) begin
+				fsm_next_state <= 1'd1;
+			end
+			if (((new_port_cmd_valid & new_port_cmd_ready) & (~wishbone_port_we))) begin
+				fsm_next_state <= 2'd2;
+			end
+			aborted_fsm_next_value <= 1'd0;
+			aborted_fsm_next_value_ce <= 1'd1;
+		end
+	endcase
+// synthesis translate_off
+	dummy_d_10 <= dummy_s;
+// synthesis translate_on
+end
+
+always @(posedge sys_clk) begin
+	if (litedramnativeportconverter_wdata_finished) begin
+		litedramnativeportconverter_read_lock <= 1'd0;
+		litedramnativeportconverter_read_unlocked <= 1'd1;
+	end else begin
+		if (((litedramnativeportconverter_rw_collision & (~cmd_valid)) & (~litedramnativeportconverter_read_unlocked))) begin
+			litedramnativeportconverter_read_lock <= 1'd1;
+		end
+	end
+	if ((new_port_cmd_valid & new_port_cmd_ready)) begin
+		litedramnativeportconverter_read_unlocked <= 1'd0;
+	end
+	if ((litedramnativeportconverter_rdata_converter_source_valid & litedramnativeportconverter_rdata_converter_source_ready)) begin
+		litedramnativeportconverter_rdata_chunk <= {litedramnativeportconverter_rdata_chunk[6:0], litedramnativeportconverter_rdata_chunk[7]};
+	end
+	if ((litedramnativeportconverter_wdata_converter_sink_valid & litedramnativeportconverter_wdata_converter_sink_ready)) begin
+		litedramnativeportconverter_wdata_chunk <= {litedramnativeportconverter_wdata_chunk[6:0], litedramnativeportconverter_wdata_chunk[7]};
+	end
+	if (((litedramnativeportconverter_cmd_buffer_source_valid & litedramnativeportconverter_cmd_buffer_source_payload_we) & litedramnativeportconverter_wdata_chunk[7])) begin
+		litedramnativeportconverter_wdata_sel <= {{4{litedramnativeportconverter_cmd_buffer_source_payload_sel[7]}}, {4{litedramnativeportconverter_cmd_buffer_source_payload_sel[6]}}, {4{litedramnativeportconverter_cmd_buffer_source_payload_sel[5]}}, {4{litedramnativeportconverter_cmd_buffer_source_payload_sel[4]}}, {4{litedramnativeportconverter_cmd_buffer_source_payload_sel[3]}}, {4{litedramnativeportconverter_cmd_buffer_source_payload_sel[2]}}, {4{litedramnativeportconverter_cmd_buffer_source_payload_sel[1]}}, {4{litedramnativeportconverter_cmd_buffer_source_payload_sel[0]}}};
+	end
+	litedramnativeportconverter_state <= litedramnativeportconverter_next_state;
+	if (litedramnativeportconverter_cmd_addr_litedramnativeportconverter_next_value_ce0) begin
+		litedramnativeportconverter_cmd_addr <= litedramnativeportconverter_cmd_addr_litedramnativeportconverter_next_value0;
+	end
+	if (litedramnativeportconverter_cmd_we_litedramnativeportconverter_next_value_ce1) begin
+		litedramnativeportconverter_cmd_we <= litedramnativeportconverter_cmd_we_litedramnativeportconverter_next_value1;
+	end
+	if (litedramnativeportconverter_cmd_last_litedramnativeportconverter_next_value_ce2) begin
+		litedramnativeportconverter_cmd_last <= litedramnativeportconverter_cmd_last_litedramnativeportconverter_next_value2;
+	end
+	if (litedramnativeportconverter_sel_litedramnativeportconverter_next_value_ce3) begin
+		litedramnativeportconverter_sel <= litedramnativeportconverter_sel_litedramnativeportconverter_next_value3;
+	end
+	if (((litedramnativeportconverter_rdata_fifo_syncfifo_we & litedramnativeportconverter_rdata_fifo_syncfifo_writable) & (~litedramnativeportconverter_rdata_fifo_replace))) begin
+		if ((litedramnativeportconverter_rdata_fifo_produce == 3'd6)) begin
+			litedramnativeportconverter_rdata_fifo_produce <= 1'd0;
+		end else begin
+			litedramnativeportconverter_rdata_fifo_produce <= (litedramnativeportconverter_rdata_fifo_produce + 1'd1);
+		end
+	end
+	if (litedramnativeportconverter_rdata_fifo_do_read) begin
+		if ((litedramnativeportconverter_rdata_fifo_consume == 3'd6)) begin
+			litedramnativeportconverter_rdata_fifo_consume <= 1'd0;
+		end else begin
+			litedramnativeportconverter_rdata_fifo_consume <= (litedramnativeportconverter_rdata_fifo_consume + 1'd1);
+		end
+	end
+	if (((litedramnativeportconverter_rdata_fifo_syncfifo_we & litedramnativeportconverter_rdata_fifo_syncfifo_writable) & (~litedramnativeportconverter_rdata_fifo_replace))) begin
+		if ((~litedramnativeportconverter_rdata_fifo_do_read)) begin
+			litedramnativeportconverter_rdata_fifo_level <= (litedramnativeportconverter_rdata_fifo_level + 1'd1);
+		end
+	end else begin
+		if (litedramnativeportconverter_rdata_fifo_do_read) begin
+			litedramnativeportconverter_rdata_fifo_level <= (litedramnativeportconverter_rdata_fifo_level - 1'd1);
+		end
+	end
+	if ((litedramnativeportconverter_rdata_converter_converter_source_valid & litedramnativeportconverter_rdata_converter_converter_source_ready)) begin
+		if (litedramnativeportconverter_rdata_converter_converter_last) begin
+			litedramnativeportconverter_rdata_converter_converter_mux <= 1'd0;
+		end else begin
+			litedramnativeportconverter_rdata_converter_converter_mux <= (litedramnativeportconverter_rdata_converter_converter_mux + 1'd1);
+		end
+	end
+	if (litedramnativeportconverter_wdata_converter_converter_source_ready) begin
+		litedramnativeportconverter_wdata_converter_converter_strobe_all <= 1'd0;
+	end
+	if (litedramnativeportconverter_wdata_converter_converter_load_part) begin
+		if (((litedramnativeportconverter_wdata_converter_converter_demux == 3'd7) | litedramnativeportconverter_wdata_converter_converter_sink_last)) begin
+			litedramnativeportconverter_wdata_converter_converter_demux <= 1'd0;
+			litedramnativeportconverter_wdata_converter_converter_strobe_all <= 1'd1;
+		end else begin
+			litedramnativeportconverter_wdata_converter_converter_demux <= (litedramnativeportconverter_wdata_converter_converter_demux + 1'd1);
+		end
+	end
+	if ((litedramnativeportconverter_wdata_converter_converter_source_valid & litedramnativeportconverter_wdata_converter_converter_source_ready)) begin
+		if ((litedramnativeportconverter_wdata_converter_converter_sink_valid & litedramnativeportconverter_wdata_converter_converter_sink_ready)) begin
+			litedramnativeportconverter_wdata_converter_converter_source_first <= litedramnativeportconverter_wdata_converter_converter_sink_first;
+			litedramnativeportconverter_wdata_converter_converter_source_last <= litedramnativeportconverter_wdata_converter_converter_sink_last;
+		end else begin
+			litedramnativeportconverter_wdata_converter_converter_source_first <= 1'd0;
+			litedramnativeportconverter_wdata_converter_converter_source_last <= 1'd0;
+		end
+	end else begin
+		if ((litedramnativeportconverter_wdata_converter_converter_sink_valid & litedramnativeportconverter_wdata_converter_converter_sink_ready)) begin
+			litedramnativeportconverter_wdata_converter_converter_source_first <= (litedramnativeportconverter_wdata_converter_converter_sink_first | litedramnativeportconverter_wdata_converter_converter_source_first);
+			litedramnativeportconverter_wdata_converter_converter_source_last <= (litedramnativeportconverter_wdata_converter_converter_sink_last | litedramnativeportconverter_wdata_converter_converter_source_last);
+		end
+	end
+	if (litedramnativeportconverter_wdata_converter_converter_load_part) begin
+		case (litedramnativeportconverter_wdata_converter_converter_demux)
+			1'd0: begin
+				litedramnativeportconverter_wdata_converter_converter_source_payload_data[35:0] <= litedramnativeportconverter_wdata_converter_converter_sink_payload_data;
+			end
+			1'd1: begin
+				litedramnativeportconverter_wdata_converter_converter_source_payload_data[71:36] <= litedramnativeportconverter_wdata_converter_converter_sink_payload_data;
+			end
+			2'd2: begin
+				litedramnativeportconverter_wdata_converter_converter_source_payload_data[107:72] <= litedramnativeportconverter_wdata_converter_converter_sink_payload_data;
+			end
+			2'd3: begin
+				litedramnativeportconverter_wdata_converter_converter_source_payload_data[143:108] <= litedramnativeportconverter_wdata_converter_converter_sink_payload_data;
+			end
+			3'd4: begin
+				litedramnativeportconverter_wdata_converter_converter_source_payload_data[179:144] <= litedramnativeportconverter_wdata_converter_converter_sink_payload_data;
+			end
+			3'd5: begin
+				litedramnativeportconverter_wdata_converter_converter_source_payload_data[215:180] <= litedramnativeportconverter_wdata_converter_converter_sink_payload_data;
+			end
+			3'd6: begin
+				litedramnativeportconverter_wdata_converter_converter_source_payload_data[251:216] <= litedramnativeportconverter_wdata_converter_converter_sink_payload_data;
+			end
+			3'd7: begin
+				litedramnativeportconverter_wdata_converter_converter_source_payload_data[287:252] <= litedramnativeportconverter_wdata_converter_converter_sink_payload_data;
+			end
+		endcase
+	end
+	if (litedramnativeportconverter_wdata_converter_converter_load_part) begin
+		litedramnativeportconverter_wdata_converter_converter_source_payload_valid_token_count <= (litedramnativeportconverter_wdata_converter_converter_demux + 1'd1);
+	end
+	if (((litedramnativeportconverter_wdata_fifo_syncfifo_we & litedramnativeportconverter_wdata_fifo_syncfifo_writable) & (~litedramnativeportconverter_wdata_fifo_replace))) begin
+		if ((litedramnativeportconverter_wdata_fifo_produce == 3'd6)) begin
+			litedramnativeportconverter_wdata_fifo_produce <= 1'd0;
+		end else begin
+			litedramnativeportconverter_wdata_fifo_produce <= (litedramnativeportconverter_wdata_fifo_produce + 1'd1);
+		end
+	end
+	if (litedramnativeportconverter_wdata_fifo_do_read) begin
+		if ((litedramnativeportconverter_wdata_fifo_consume == 3'd6)) begin
+			litedramnativeportconverter_wdata_fifo_consume <= 1'd0;
+		end else begin
+			litedramnativeportconverter_wdata_fifo_consume <= (litedramnativeportconverter_wdata_fifo_consume + 1'd1);
+		end
+	end
+	if (((litedramnativeportconverter_wdata_fifo_syncfifo_we & litedramnativeportconverter_wdata_fifo_syncfifo_writable) & (~litedramnativeportconverter_wdata_fifo_replace))) begin
+		if ((~litedramnativeportconverter_wdata_fifo_do_read)) begin
+			litedramnativeportconverter_wdata_fifo_level <= (litedramnativeportconverter_wdata_fifo_level + 1'd1);
+		end
+	end else begin
+		if (litedramnativeportconverter_wdata_fifo_do_read) begin
+			litedramnativeportconverter_wdata_fifo_level <= (litedramnativeportconverter_wdata_fifo_level - 1'd1);
+		end
+	end
+	if (((~litedramnativeportconverter_wdata_buffer_source_valid) | litedramnativeportconverter_wdata_buffer_source_ready)) begin
+		litedramnativeportconverter_wdata_buffer_source_valid <= litedramnativeportconverter_wdata_buffer_sink_valid;
+		litedramnativeportconverter_wdata_buffer_source_first <= litedramnativeportconverter_wdata_buffer_sink_first;
+		litedramnativeportconverter_wdata_buffer_source_last <= litedramnativeportconverter_wdata_buffer_sink_last;
+		litedramnativeportconverter_wdata_buffer_source_payload_data <= litedramnativeportconverter_wdata_buffer_sink_payload_data;
+		litedramnativeportconverter_wdata_buffer_source_payload_we <= litedramnativeportconverter_wdata_buffer_sink_payload_we;
+	end
+	fsm_state <= fsm_next_state;
+	if (aborted_fsm_next_value_ce) begin
+		aborted <= aborted_fsm_next_value;
+	end
+	if (sys_rst) begin
+		litedramnativeportconverter_sel <= 8'd0;
+		litedramnativeportconverter_cmd_addr <= 30'd0;
+		litedramnativeportconverter_cmd_we <= 1'd0;
+		litedramnativeportconverter_cmd_last <= 1'd0;
+		litedramnativeportconverter_read_lock <= 1'd0;
+		litedramnativeportconverter_read_unlocked <= 1'd0;
+		litedramnativeportconverter_rdata_fifo_level <= 3'd0;
+		litedramnativeportconverter_rdata_fifo_produce <= 3'd0;
+		litedramnativeportconverter_rdata_fifo_consume <= 3'd0;
+		litedramnativeportconverter_rdata_converter_converter_mux <= 3'd0;
+		litedramnativeportconverter_rdata_chunk <= 8'd1;
+		litedramnativeportconverter_wdata_fifo_level <= 3'd0;
+		litedramnativeportconverter_wdata_fifo_produce <= 3'd0;
+		litedramnativeportconverter_wdata_fifo_consume <= 3'd0;
+		litedramnativeportconverter_wdata_buffer_source_valid <= 1'd0;
+		litedramnativeportconverter_wdata_buffer_source_payload_data <= 256'd0;
+		litedramnativeportconverter_wdata_buffer_source_payload_we <= 32'd0;
+		litedramnativeportconverter_wdata_converter_converter_source_payload_data <= 288'd0;
+		litedramnativeportconverter_wdata_converter_converter_source_payload_valid_token_count <= 4'd0;
+		litedramnativeportconverter_wdata_converter_converter_demux <= 3'd0;
+		litedramnativeportconverter_wdata_converter_converter_strobe_all <= 1'd0;
+		litedramnativeportconverter_wdata_chunk <= 8'd1;
+		litedramnativeportconverter_wdata_sel <= 32'd0;
+		aborted <= 1'd0;
+		litedramnativeportconverter_state <= 2'd0;
+		fsm_state <= 2'd0;
+	end
+end
+
+reg [257:0] storage[0:6];
+reg [257:0] memdat;
+always @(posedge sys_clk) begin
+	if (litedramnativeportconverter_rdata_fifo_wrport_we)
+		storage[litedramnativeportconverter_rdata_fifo_wrport_adr] <= litedramnativeportconverter_rdata_fifo_wrport_dat_w;
+	memdat <= storage[litedramnativeportconverter_rdata_fifo_wrport_adr];
+end
+
+always @(posedge sys_clk) begin
+end
+
+assign litedramnativeportconverter_rdata_fifo_wrport_dat_r = memdat;
+assign litedramnativeportconverter_rdata_fifo_rdport_dat_r = storage[litedramnativeportconverter_rdata_fifo_rdport_adr];
+
+reg [37:0] storage_1[0:6];
+reg [37:0] memdat_1;
+always @(posedge sys_clk) begin
+	if (litedramnativeportconverter_wdata_fifo_wrport_we)
+		storage_1[litedramnativeportconverter_wdata_fifo_wrport_adr] <= litedramnativeportconverter_wdata_fifo_wrport_dat_w;
+	memdat_1 <= storage_1[litedramnativeportconverter_wdata_fifo_wrport_adr];
+end
+
+always @(posedge sys_clk) begin
+end
+
+assign litedramnativeportconverter_wdata_fifo_wrport_dat_r = memdat_1;
+assign litedramnativeportconverter_wdata_fifo_rdport_dat_r = storage_1[litedramnativeportconverter_wdata_fifo_rdport_adr];
+
+endmodule
