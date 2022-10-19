@@ -1,0 +1,810 @@
+Chronologic VCS simulator copyright 1991-2022
+Contains Synopsys proprietary information.
+Compiler version T-2022.06_Full64; Runtime version T-2022.06_Full64;  Oct 10 23:46 2022
+----------------------------------------------------------------
+UVM-1.1d.Synopsys
+(C) 2007-2013 Mentor Graphics Corporation
+(C) 2007-2013 Cadence Design Systems, Inc.
+(C) 2006-2013 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+VCD+ Writer T-2022.06_Full64 Copyright (c) 1991-2022 by Synopsys Inc.
+UVM_INFO @ 0: reporter [RNTST] Running test mc_top_basic_test...
+UVM_INFO ./memory_controller_top/mc_top_basic_test.svh(12) @ 0: uvm_test_top.env.virt_sqr@@mc_top_basic_virtual_sequence [mc_top_basic_virtual_sequence] =====================STARTED=====================
+UVM_INFO ./dla_agent/dla_cmd_sequence.svh(43) @ 3300: uvm_test_top.env.dla_agents[0].sequencer@@mc_top_basic_virtual_sequence.dla_cmd_seq [dla_cmd_sequence] AFTER RANDOMIZATION 
+=======================================
+dla_cmd_sequence object content is as below: 
+--------------------------------------------------------------------------------------------------------------
+Name                           Type              Size  Value                                                  
+--------------------------------------------------------------------------------------------------------------
+dla_cmd_seq                    dla_cmd_sequence  -     @1805                                                  
+  channel                      integral          1     'h0                                                    
+  ntrans                       integral          32    'h2                                                    
+  depth                        int               32    'd2                                                    
+  parent sequence (name)       string            29    mc_top_basic_virtual_sequence                          
+  parent sequence (full name)  string            55    uvm_test_top.env.virt_sqr.mc_top_basic_virtual_sequence
+  sequencer                    string            40    uvm_test_top.env.dla_agents[0].sequencer               
+  req                          object            -     <null>                                                 
+  rsp                          object            -     <null>                                                 
+--------------------------------------------------------------------------------------------------------------
+=======================================
+
+UVM_INFO ./dla_agent/dla_cmd_sequence.svh(43) @ 3300: uvm_test_top.env.dla_agents[1].sequencer@@mc_top_basic_virtual_sequence.dla_cmd_seq [dla_cmd_sequence] AFTER RANDOMIZATION 
+=======================================
+dla_cmd_sequence object content is as below: 
+--------------------------------------------------------------------------------------------------------------
+Name                           Type              Size  Value                                                  
+--------------------------------------------------------------------------------------------------------------
+dla_cmd_seq                    dla_cmd_sequence  -     @1810                                                  
+  channel                      integral          1     'h1                                                    
+  ntrans                       integral          32    'h2                                                    
+  depth                        int               32    'd2                                                    
+  parent sequence (name)       string            29    mc_top_basic_virtual_sequence                          
+  parent sequence (full name)  string            55    uvm_test_top.env.virt_sqr.mc_top_basic_virtual_sequence
+  sequencer                    string            40    uvm_test_top.env.dla_agents[1].sequencer               
+  req                          object            -     <null>                                                 
+  rsp                          object            -     <null>                                                 
+--------------------------------------------------------------------------------------------------------------
+=======================================
+
+  try to trans  ---------      39
+  burst_length  ---------      20
+  try to trans  ---------      18
+  burst_length  ---------      20
+UVM_INFO ./dla_agent/dla_driver.svh(65) @ 3600: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Port 1 sent command [we]=[2] at address 0x390
+UVM_INFO ./dla_agent/dla_driver.svh(65) @ 3600: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Port 0 sent command [we]=[2] at address 0x180
+  try to trans  ---------      d768abc94c49b103ae534799b4d7c6a56c610c0e6b66de2f5714f73db744bb47
+  actually trans  ---------      d768abc94c49b103ae534799b4d7c6a56c610c0e6b66de2f5714f73db744bb47
+  burst_length  ---------      20
+  try to trans  ---------      aa1d70ee52e1f611974868d79c999b63d8f4307cefe0933cdfe36729a5b4b27e
+  actually trans  ---------      aa1d70ee52e1f611974868d79c999b63d8f4307cefe0933cdfe36729a5b4b27e
+  burst_length  ---------      20
+  real_address  ---------      18
+UVM_INFO ./dla_agent/dla_monitor.svh(51) @ 3700: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 3700 Monitored mosi cmd [we,mw]=[1,0] at address 0x00000018
+  real_address  ---------      39
+UVM_INFO ./dla_agent/dla_monitor.svh(51) @ 3700: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 3700 Monitored mosi cmd [we,mw]=[1,0] at address 0x00000039
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 4000: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xd768abc94c49b103ae534799b4d7c6a56c610c0e6b66de2f5714f73db744bb47]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 4000: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xaa1d70ee52e1f611974868d79c999b63d8f4307cefe0933cdfe36729a5b4b27e]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 4100: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 4100 Monitored MOSI WRITE DATA 0xaa1d70ee52e1f611974868d79c999b63d8f4307cefe0933cdfe36729a5b4b27e
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 4100: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 4100 Monitored MOSI WRITE DATA 0xd768abc94c49b103ae534799b4d7c6a56c610c0e6b66de2f5714f73db744bb47
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 4200: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xd6a80f6bb9b7b0056afd27f841943853cba08e342539b4f0035ed6050a261101]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 4200: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xa83ada3534163785a1657cd5af491d3521c44c566a73524c5b69da2ec2cd7d87]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 4300: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 4300 Monitored MOSI WRITE DATA 0xa83ada3534163785a1657cd5af491d3521c44c566a73524c5b69da2ec2cd7d87
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 4300: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 4300 Monitored MOSI WRITE DATA 0xd6a80f6bb9b7b0056afd27f841943853cba08e342539b4f0035ed6050a261101
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 4400: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xe2e4664d07cdb8194eb6865d94beb43ea2a19e402613611197833ed47c3f3487]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 4400: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0x8b592fb96169d87a64c7130d4eab040478e15e674ab07171ceb04e8e6c0146fa]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 4500: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 4500 Monitored MOSI WRITE DATA 0x8b592fb96169d87a64c7130d4eab040478e15e674ab07171ceb04e8e6c0146fa
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 4500: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 4500 Monitored MOSI WRITE DATA 0xe2e4664d07cdb8194eb6865d94beb43ea2a19e402613611197833ed47c3f3487
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 4600: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xf023309d297f748d72a60835b71b41cf38187d8adfb8271e457b1183950ecf89]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 4600: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0x9b88622e40621d0d8730600ca2dcf12ad79cb169e3d9eb03a558520f474609d4]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 4700: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 4700 Monitored MOSI WRITE DATA 0x9b88622e40621d0d8730600ca2dcf12ad79cb169e3d9eb03a558520f474609d4
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 4700: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 4700 Monitored MOSI WRITE DATA 0xf023309d297f748d72a60835b71b41cf38187d8adfb8271e457b1183950ecf89
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 4800: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xd59d32305a9655df7a1786f83803953364da653b69d0636e2566c04d2fa7c6ce]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 4800: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xbafeebd821358a7f16ce66786ad90271e79cbc7aac382418c5128e1cb777d67e]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 4900: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 4900 Monitored MOSI WRITE DATA 0xbafeebd821358a7f16ce66786ad90271e79cbc7aac382418c5128e1cb777d67e
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 4900: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 4900 Monitored MOSI WRITE DATA 0xd59d32305a9655df7a1786f83803953364da653b69d0636e2566c04d2fa7c6ce
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 5000: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xfe9deccfa1f07759f9295e68db741c01767d60037957f2f5674552554d18d1d5]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 5000: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0x83a86431ca58f1ea28f3a1757d35a104b311969f0bbec1b46810086cad9c5ae8]
+UVM_INFO ./dfi_agent/dfi_monitor.svh(523) @ 5100: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 5100 monitored DFI p0 cmd PRECHARGE at bank 0
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 5100: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 5100 Monitored MOSI WRITE DATA 0x83a86431ca58f1ea28f3a1757d35a104b311969f0bbec1b46810086cad9c5ae8
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 5100: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 5100 Monitored MOSI WRITE DATA 0xfe9deccfa1f07759f9295e68db741c01767d60037957f2f5674552554d18d1d5
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 5200: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xfcdd5ede21ed2aef0284ad7257e2ed01f3af9aa976f9e87f09072920cbaded96]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 5200: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xa1ef4611981513859812972c96a162ce8c5c769e8349c90773f009a75f5c5623]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 5300: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 5300 Monitored MOSI WRITE DATA 0xa1ef4611981513859812972c96a162ce8c5c769e8349c90773f009a75f5c5623
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 5300: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 5300 Monitored MOSI WRITE DATA 0xfcdd5ede21ed2aef0284ad7257e2ed01f3af9aa976f9e87f09072920cbaded96
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 5400: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xd755676491a60bf47d30052633b16b684f4b06ca9d2ab53251a647b9f8783359]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 5400: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xa2b1060d4148842b6dc466c2c4cb607fcb521bd8cac1ce495df2bd3e0ef9f35a]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 5500: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 5500 Monitored MOSI WRITE DATA 0xa2b1060d4148842b6dc466c2c4cb607fcb521bd8cac1ce495df2bd3e0ef9f35a
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 5500: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 5500 Monitored MOSI WRITE DATA 0xd755676491a60bf47d30052633b16b684f4b06ca9d2ab53251a647b9f8783359
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 5600: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xda6bf264046c324d157811a2688ed924040fbaac6074fd933c43086348341fba]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 5600: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0x956319be0f4edf2661348c583033a1f924829a35efc7aa32fc40e1c84a193482]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 5700: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 5700 Monitored MOSI WRITE DATA 0x956319be0f4edf2661348c583033a1f924829a35efc7aa32fc40e1c84a193482
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 5700: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 5700 Monitored MOSI WRITE DATA 0xda6bf264046c324d157811a2688ed924040fbaac6074fd933c43086348341fba
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 5800: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xfeb073442fcae683130c8776e7f63b2c51343113373f0ef94acecc7e4cac0d99]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 5800: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0x9a96c45875d8e58f175840939a23bd63d18dbe5596d9cbd999946d014462f3d5]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 5900: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 5900 Monitored MOSI WRITE DATA 0x9a96c45875d8e58f175840939a23bd63d18dbe5596d9cbd999946d014462f3d5
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 5900: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 5900 Monitored MOSI WRITE DATA 0xfeb073442fcae683130c8776e7f63b2c51343113373f0ef94acecc7e4cac0d99
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 6000: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xfe80dbc87ea92f5c7a1219a8afe12801135f5c8c19f0469f5e95197e19577769]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 6000: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0x9313abd71765d1cb56041b5ee124936581b9c0f4ed2968a71a82baa315e4fa3d]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 6100: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 6100 Monitored MOSI WRITE DATA 0x9313abd71765d1cb56041b5ee124936581b9c0f4ed2968a71a82baa315e4fa3d
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 6100: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 6100 Monitored MOSI WRITE DATA 0xfe80dbc87ea92f5c7a1219a8afe12801135f5c8c19f0469f5e95197e19577769
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 6200: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xdd7f51292be5b7258a21153a8157deb830306cb5b7c8ebd0ede8a496788ebd73]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 6200: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0x9dd755a3329f8a96698dff33c149fb5d8a158055c344457e7cf4f15c6cb11327]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 6300: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 6300 Monitored MOSI WRITE DATA 0x9dd755a3329f8a96698dff33c149fb5d8a158055c344457e7cf4f15c6cb11327
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 6300: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 6300 Monitored MOSI WRITE DATA 0xdd7f51292be5b7258a21153a8157deb830306cb5b7c8ebd0ede8a496788ebd73
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 6400: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xc13704ca399d17851c7be7e49b7288e35954455801716b2e5454549e1a882a90]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 6400: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0x888bc3a47857ba092300be40d479e33916914d65e769161f01cff5309040176f]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 6500: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 6500 Monitored MOSI WRITE DATA 0x888bc3a47857ba092300be40d479e33916914d65e769161f01cff5309040176f
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 6500: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 6500 Monitored MOSI WRITE DATA 0xc13704ca399d17851c7be7e49b7288e35954455801716b2e5454549e1a882a90
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 6600: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xf673048c0431e0909ed674e7230103dbb08f668de5207f0b3fdaf3c38d27afe9]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 6600: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xb997798029fbab1cc94a999126ed13a32f2aa4528f4bb44875d906f98bf34ff8]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 6700: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 6700 Monitored MOSI WRITE DATA 0xb997798029fbab1cc94a999126ed13a32f2aa4528f4bb44875d906f98bf34ff8
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 6700: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 6700 Monitored MOSI WRITE DATA 0xf673048c0431e0909ed674e7230103dbb08f668de5207f0b3fdaf3c38d27afe9
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 6800: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xdb90f1ede5613eeb503e7eed802682fcdb22be56047be884eef0425fd9f553be]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 6800: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0x95efa16720858db2fcef445a7d385430870b7561fa7cdefa5d2983911bd38f84]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 6900: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 6900 Monitored MOSI WRITE DATA 0x95efa16720858db2fcef445a7d385430870b7561fa7cdefa5d2983911bd38f84
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 6900: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 6900 Monitored MOSI WRITE DATA 0xdb90f1ede5613eeb503e7eed802682fcdb22be56047be884eef0425fd9f553be
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 7000: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xccb52f7ae341d5a25e43e8b8be06a1f865d44b2cd8e7be02a2ea36d32ad3b524]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 7000: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0x939f8233c17b31a20c1a86b7e9be3af68bb87b9920e449c17f4badf59668a255]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 7100: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 7100 Monitored MOSI WRITE DATA 0x939f8233c17b31a20c1a86b7e9be3af68bb87b9920e449c17f4badf59668a255
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 7100: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 7100 Monitored MOSI WRITE DATA 0xccb52f7ae341d5a25e43e8b8be06a1f865d44b2cd8e7be02a2ea36d32ad3b524
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 7200: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xf34642e89d66d263c1b6639354111e8ae0ec5b9fe096723813320be4a9fadac7]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 7200: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xa7fddea64bcc9cd6b6ce7a3de691cf0cff4a55b93c2619b3b802430c392fa391]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 7300: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 7300 Monitored MOSI WRITE DATA 0xa7fddea64bcc9cd6b6ce7a3de691cf0cff4a55b93c2619b3b802430c392fa391
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 7300: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 7300 Monitored MOSI WRITE DATA 0xf34642e89d66d263c1b6639354111e8ae0ec5b9fe096723813320be4a9fadac7
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 7400: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xf6a9facd69d5f15995a6291bde289e4952d4f00bb0e32ed69268efba58be0bba]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 7400: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xb94149dd32655b52826dea5c0e3a0b2f581e406249d7184aacff80a2fd8a1b3f]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 7500: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 7500 Monitored MOSI WRITE DATA 0xb94149dd32655b52826dea5c0e3a0b2f581e406249d7184aacff80a2fd8a1b3f
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 7500: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 7500 Monitored MOSI WRITE DATA 0xf6a9facd69d5f15995a6291bde289e4952d4f00bb0e32ed69268efba58be0bba
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 7600: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xfc6f5178d4496fa813c49aa07e254d34c498d5158972e736407c1e052063dd31]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 7600: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xb8f392e71936de451523757fb3369811962d25b0b4ea898b48eabd0a77447b06]
+UVM_INFO ./dfi_agent/dfi_monitor.svh(525) @ 7700: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 7700 monitored DFI p0 cmd ACTIVATE at bank 0, row 0x0
+UVM_INFO ./dfi_agent/dfi_monitor.svh(80) @ 7700: uvm_test_top.env.dfi_mon [tRRD MET] [DB]Time interval between ACTIVATE and ACTIVATE is 77 ns >= tRRD= 10 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(119) @ 7700: uvm_test_top.env.dfi_mon [tRC MET] [SB]Time interval between ACTIVATE and ACTIVATE is 77 ns >= tRC= 63 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 7700: uvm_test_top.env.dfi_mon [DFI tRP_ns MET] [DFI]Time interval between PRECHARGE and ACTIVATE is 26 ns >= tRP_ns= 21 ns.
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 7700: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 7700 Monitored MOSI WRITE DATA 0xb8f392e71936de451523757fb3369811962d25b0b4ea898b48eabd0a77447b06
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 7700: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 7700 Monitored MOSI WRITE DATA 0xfc6f5178d4496fa813c49aa07e254d34c498d5158972e736407c1e052063dd31
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 7800: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xc8c1c6293385feab85922afccd009c373aa2f6b2e9d1d106803c9c2abb0cb4f3]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 7800: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0x80fc293543d315e8d2be23b1d42ee8f9a396fda660dc2e3e7f13df0099bd0f21]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 7900: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 7900 Monitored MOSI WRITE DATA 0x80fc293543d315e8d2be23b1d42ee8f9a396fda660dc2e3e7f13df0099bd0f21
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 7900: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 7900 Monitored MOSI WRITE DATA 0xc8c1c6293385feab85922afccd009c373aa2f6b2e9d1d106803c9c2abb0cb4f3
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 8000: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xd1d957627950ae656f77a23030e1115bd856d692d6aefd2ed01457e8cfd3b57a]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 8000: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xb74ad17a6e31355ca66e027ebe8b94061e3d3ea6ef79b9e6385e2d3c7a46e174]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 8100: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 8100 Monitored MOSI WRITE DATA 0xb74ad17a6e31355ca66e027ebe8b94061e3d3ea6ef79b9e6385e2d3c7a46e174
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 8100: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 8100 Monitored MOSI WRITE DATA 0xd1d957627950ae656f77a23030e1115bd856d692d6aefd2ed01457e8cfd3b57a
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 8200: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xff79846fb89378af94c24f976d8c4f650e3ecb09c39c8721869081e87d1d742c]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 8200: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0x9be37438d3431160d29ef7cc73adecccbc90f2cacdbede919a8704208f9c4ad2]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 8300: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 8300 Monitored MOSI WRITE DATA 0x9be37438d3431160d29ef7cc73adecccbc90f2cacdbede919a8704208f9c4ad2
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 8300: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 8300 Monitored MOSI WRITE DATA 0xff79846fb89378af94c24f976d8c4f650e3ecb09c39c8721869081e87d1d742c
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 8400: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xe7a8994c866eb17362274f4df407c13cfa9cf8b898c8124a993b000c5a381a87]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 8400: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xb46f0e6a1481a30f99ae833661cd2ffea555ac7c5759a91d35fed4f64a1d13dc]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 8500: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 8500 Monitored MOSI WRITE DATA 0xb46f0e6a1481a30f99ae833661cd2ffea555ac7c5759a91d35fed4f64a1d13dc
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 8500: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 8500 Monitored MOSI WRITE DATA 0xe7a8994c866eb17362274f4df407c13cfa9cf8b898c8124a993b000c5a381a87
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 8600: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xf9c182e9603b8d5ed14dbb08fa40e5fa3b6ae2441160dd8687c3bf96add1cc65]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 8600: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0x96f3cc185e9180fbc5531e9288c1ea835019872759d4c86b8aa6c8935b76d675]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 8700: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 8700 Monitored MOSI WRITE DATA 0x96f3cc185e9180fbc5531e9288c1ea835019872759d4c86b8aa6c8935b76d675
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 8700: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 8700 Monitored MOSI WRITE DATA 0xf9c182e9603b8d5ed14dbb08fa40e5fa3b6ae2441160dd8687c3bf96add1cc65
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 8800: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xd25d40a10f3849966f877fa9a6d6c8a463a6a6d711b6702ad43cdcc763fff64b]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 8800: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0x9d4f5504c9024f32a5e45cc48d8e6be915bc2ffa915136acf072f0f8680c7c46]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 8900: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 8900 Monitored MOSI WRITE DATA 0x9d4f5504c9024f32a5e45cc48d8e6be915bc2ffa915136acf072f0f8680c7c46
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 8900: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 8900 Monitored MOSI WRITE DATA 0xd25d40a10f3849966f877fa9a6d6c8a463a6a6d711b6702ad43cdcc763fff64b
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 9000: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xf8503150f35fed1bd498771c01f74187b824b020042eb3ea1f454e9ba9c73d1f]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 9000: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xbf1c06730a820a304cafbf8c6bbed81c0d96df1dd70219878d87829b548861e6]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 9100: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 9100 Monitored MOSI WRITE DATA 0xbf1c06730a820a304cafbf8c6bbed81c0d96df1dd70219878d87829b548861e6
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 9100: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 9100 Monitored MOSI WRITE DATA 0xf8503150f35fed1bd498771c01f74187b824b020042eb3ea1f454e9ba9c73d1f
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 9200: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xe98163072f20497af74c550c300e783bbfb372f1c6c0e6b10dde48c5a295a7a4]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 9200: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xab211dbde8324f3b305642c3359d40c5e64a5ec32adb9599d24cb762113f85c2]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 9300: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 9300 Monitored MOSI WRITE DATA 0xab211dbde8324f3b305642c3359d40c5e64a5ec32adb9599d24cb762113f85c2
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 9300: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 9300 Monitored MOSI WRITE DATA 0xe98163072f20497af74c550c300e783bbfb372f1c6c0e6b10dde48c5a295a7a4
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 9400: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xdee2609a22c6e7ed232c23a8c196e585a3240532f171454643bb78dbcf469e53]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 9400: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xbfad4f098ed9761adad350dc506e98a78c80cc607aa414ea1f0b4c02d1935fbd]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 9500: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 9500 Monitored MOSI WRITE DATA 0xbfad4f098ed9761adad350dc506e98a78c80cc607aa414ea1f0b4c02d1935fbd
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 9500: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 9500 Monitored MOSI WRITE DATA 0xdee2609a22c6e7ed232c23a8c196e585a3240532f171454643bb78dbcf469e53
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 9600: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xc2597cc1f63907fba8852d1e35d95779feb8d5242f2919e7359eb8c35f8a19fd]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 9600: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xa417e7a974a483989933c6d71b38e58a89e6d5eebe3b393352cd19f9d2e584ee]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 9700: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 9700 Monitored MOSI WRITE DATA 0xa417e7a974a483989933c6d71b38e58a89e6d5eebe3b393352cd19f9d2e584ee
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 9700: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 9700 Monitored MOSI WRITE DATA 0xc2597cc1f63907fba8852d1e35d95779feb8d5242f2919e7359eb8c35f8a19fd
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 9800: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xdb2208f0ba4a81db06f9c7e9fff35f40605b739f171103ac347ca492b9b90b07]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 9800: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xb5968af905adf098cea5a889c3b54fde66a4cd7f6587995de8d11f781e15a235]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 9900: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 9900 Monitored MOSI WRITE DATA 0xb5968af905adf098cea5a889c3b54fde66a4cd7f6587995de8d11f781e15a235
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 9900: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 9900 Monitored MOSI WRITE DATA 0xdb2208f0ba4a81db06f9c7e9fff35f40605b739f171103ac347ca492b9b90b07
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 10000: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xc8d71b7ec16a0cc7fa0ab938e9b88a8454ba0253a89a8a190795e380a1d6456a]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 10000: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xbc78cab77a26c95e0f6cd773af9a6d770ee0ecf4d9969c222182761fdc000f03]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 10100: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 10100 Monitored MOSI WRITE DATA 0xbc78cab77a26c95e0f6cd773af9a6d770ee0ecf4d9969c222182761fdc000f03
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 10100: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 10100 Monitored MOSI WRITE DATA 0xc8d71b7ec16a0cc7fa0ab938e9b88a8454ba0253a89a8a190795e380a1d6456a
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 10200: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xd3ff41a1544858add999149c56b23e50dbde4a778c8db03961327798667781a2]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 10200: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0x8ed839d9dacacf10312203493f5d6cb00818c6204431f59530df1b5509f4dfe4]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 10300: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 10300 Monitored MOSI WRITE DATA 0x8ed839d9dacacf10312203493f5d6cb00818c6204431f59530df1b5509f4dfe4
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 10300: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 10300 Monitored MOSI WRITE DATA 0xd3ff41a1544858add999149c56b23e50dbde4a778c8db03961327798667781a2
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 10500: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 10500 monitored DFI p2 cmd WRITE at bank 0, col 0x180
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 10500: uvm_test_top.env.dfi_mon [DFI tRCD_ns MET] [DFI]Time interval between ACTIVATE and WRITE is 28 ns >= tRCD_ns= 18 ns.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 10700: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 10500 monitored DFI LPDDR4 cmd WRITE at bank 0,col 0x180
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(171) @ 10700: uvm_test_top.env.mc_top_chker [CMD CMPSUCD] Compared success! core out [we,mw,address]=[1,0,0x18] is equal with input
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 11500: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 11500 monitored DFI p2 cmd WRITE at bank 0, col 0x390
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 11500: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and WRITE is 5 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 11700: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 11500 monitored DFI LPDDR4 cmd WRITE at bank 0,col 0x390
+UVM_INFO ./dfi_agent/dfi_monitor.svh(523) @ 11900: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 11900 monitored DFI p0 cmd PRECHARGE at bank 1
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 11900: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and PRECHARGE is 2 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 12500: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 12500 monitored DFI WRDATA 0xaa1d70ee52e1f611974868d79c999b63d8f4307cefe0933cdfe36729a5b4b27e, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 12500: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xaa1d70ee52e1f611974868d79c999b63d8f4307cefe0933cdfe36729a5b4b27e] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 12700: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 12700 monitored DFI WRDATA 0xa83ada3534163785a1657cd5af491d3521c44c566a73524c5b69da2ec2cd7d87, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 12700: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xa83ada3534163785a1657cd5af491d3521c44c566a73524c5b69da2ec2cd7d87] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 13500: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 13500 monitored DFI WRDATA 0xd768abc94c49b103ae534799b4d7c6a56c610c0e6b66de2f5714f73db744bb47, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 13500: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xd768abc94c49b103ae534799b4d7c6a56c610c0e6b66de2f5714f73db744bb47] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 13700: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 13700 monitored DFI WRDATA 0xd6a80f6bb9b7b0056afd27f841943853cba08e342539b4f0035ed6050a261101, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 13700: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xd6a80f6bb9b7b0056afd27f841943853cba08e342539b4f0035ed6050a261101] is equal
+UVM_INFO ./dfi_agent/dfi_monitor.svh(525) @ 14500: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 14500 monitored DFI p0 cmd ACTIVATE at bank 1, row 0x0
+UVM_INFO ./dfi_agent/dfi_monitor.svh(80) @ 14500: uvm_test_top.env.dfi_mon [tRRD MET] [DB]Time interval between ACTIVATE and ACTIVATE is 68 ns >= tRRD= 10 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(119) @ 14500: uvm_test_top.env.dfi_mon [tRC MET] [SB]Time interval between ACTIVATE and ACTIVATE is 145 ns >= tRC= 63 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 14500: uvm_test_top.env.dfi_mon [DFI tRP_ns MET] [DFI]Time interval between PRECHARGE and ACTIVATE is 26 ns >= tRP_ns= 21 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 16900: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 16900 monitored DFI p2 cmd WRITE at bank 1, col 0x180
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 16900: uvm_test_top.env.dfi_mon [DFI tRCD_ns MET] [DFI]Time interval between ACTIVATE and WRITE is 24 ns >= tRCD_ns= 18 ns.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 17100: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 16900 monitored DFI LPDDR4 cmd WRITE at bank 1,col 0x180
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 17900: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 17900 monitored DFI p2 cmd WRITE at bank 1, col 0x390
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 17900: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and WRITE is 5 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 18100: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 17900 monitored DFI LPDDR4 cmd WRITE at bank 1,col 0x390
+UVM_INFO ./dfi_agent/dfi_monitor.svh(523) @ 18300: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 18300 monitored DFI p0 cmd PRECHARGE at bank 2
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 18300: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and PRECHARGE is 2 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 18900: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 18900 monitored DFI WRDATA 0x8b592fb96169d87a64c7130d4eab040478e15e674ab07171ceb04e8e6c0146fa, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 18900: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0x8b592fb96169d87a64c7130d4eab040478e15e674ab07171ceb04e8e6c0146fa] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 19100: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 19100 monitored DFI WRDATA 0x9b88622e40621d0d8730600ca2dcf12ad79cb169e3d9eb03a558520f474609d4, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 19100: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0x9b88622e40621d0d8730600ca2dcf12ad79cb169e3d9eb03a558520f474609d4] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 19900: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 19900 monitored DFI WRDATA 0xe2e4664d07cdb8194eb6865d94beb43ea2a19e402613611197833ed47c3f3487, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 19900: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xe2e4664d07cdb8194eb6865d94beb43ea2a19e402613611197833ed47c3f3487] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 20100: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 20100 monitored DFI WRDATA 0xf023309d297f748d72a60835b71b41cf38187d8adfb8271e457b1183950ecf89, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 20100: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xf023309d297f748d72a60835b71b41cf38187d8adfb8271e457b1183950ecf89] is equal
+UVM_INFO ./dfi_agent/dfi_monitor.svh(525) @ 20900: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 20900 monitored DFI p0 cmd ACTIVATE at bank 2, row 0x0
+UVM_INFO ./dfi_agent/dfi_monitor.svh(80) @ 20900: uvm_test_top.env.dfi_mon [tRRD MET] [DB]Time interval between ACTIVATE and ACTIVATE is 64 ns >= tRRD= 10 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(119) @ 20900: uvm_test_top.env.dfi_mon [tRC MET] [SB]Time interval between ACTIVATE and ACTIVATE is 209 ns >= tRC= 63 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 20900: uvm_test_top.env.dfi_mon [DFI tRP_ns MET] [DFI]Time interval between PRECHARGE and ACTIVATE is 26 ns >= tRP_ns= 21 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 23300: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 23300 monitored DFI p2 cmd WRITE at bank 2, col 0x180
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 23300: uvm_test_top.env.dfi_mon [DFI tRCD_ns MET] [DFI]Time interval between ACTIVATE and WRITE is 24 ns >= tRCD_ns= 18 ns.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 23500: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 23300 monitored DFI LPDDR4 cmd WRITE at bank 2,col 0x180
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 24300: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 24300 monitored DFI p2 cmd WRITE at bank 2, col 0x390
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 24300: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and WRITE is 5 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 24500: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 24300 monitored DFI LPDDR4 cmd WRITE at bank 2,col 0x390
+UVM_INFO ./dfi_agent/dfi_monitor.svh(523) @ 24700: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 24700 monitored DFI p0 cmd PRECHARGE at bank 3
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 24700: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and PRECHARGE is 2 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 25300: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 25300 monitored DFI WRDATA 0xbafeebd821358a7f16ce66786ad90271e79cbc7aac382418c5128e1cb777d67e, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 25300: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xbafeebd821358a7f16ce66786ad90271e79cbc7aac382418c5128e1cb777d67e] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 25500: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 25500 monitored DFI WRDATA 0x83a86431ca58f1ea28f3a1757d35a104b311969f0bbec1b46810086cad9c5ae8, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 25500: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0x83a86431ca58f1ea28f3a1757d35a104b311969f0bbec1b46810086cad9c5ae8] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 26300: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 26300 monitored DFI WRDATA 0xd59d32305a9655df7a1786f83803953364da653b69d0636e2566c04d2fa7c6ce, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 26300: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xd59d32305a9655df7a1786f83803953364da653b69d0636e2566c04d2fa7c6ce] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 26500: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 26500 monitored DFI WRDATA 0xfe9deccfa1f07759f9295e68db741c01767d60037957f2f5674552554d18d1d5, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 26500: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xfe9deccfa1f07759f9295e68db741c01767d60037957f2f5674552554d18d1d5] is equal
+UVM_INFO ./dfi_agent/dfi_monitor.svh(525) @ 27300: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 27300 monitored DFI p0 cmd ACTIVATE at bank 3, row 0x0
+UVM_INFO ./dfi_agent/dfi_monitor.svh(80) @ 27300: uvm_test_top.env.dfi_mon [tRRD MET] [DB]Time interval between ACTIVATE and ACTIVATE is 64 ns >= tRRD= 10 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(119) @ 27300: uvm_test_top.env.dfi_mon [tRC MET] [SB]Time interval between ACTIVATE and ACTIVATE is 273 ns >= tRC= 63 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 27300: uvm_test_top.env.dfi_mon [DFI tRP_ns MET] [DFI]Time interval between PRECHARGE and ACTIVATE is 26 ns >= tRP_ns= 21 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 29700: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 29700 monitored DFI p2 cmd WRITE at bank 3, col 0x180
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 29700: uvm_test_top.env.dfi_mon [DFI tRCD_ns MET] [DFI]Time interval between ACTIVATE and WRITE is 24 ns >= tRCD_ns= 18 ns.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 29900: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 29700 monitored DFI LPDDR4 cmd WRITE at bank 3,col 0x180
+UVM_INFO ./dla_agent/dla_cmd_sequence.svh(30) @ 30100: uvm_test_top.env.dla_agents[1].sequencer@@mc_top_basic_virtual_sequence.dla_cmd_seq [dla_cmd_sequence] ----------------------------------------------------------------------------------------------------------------------
+Name                           Type          Size  Value                                                              
+----------------------------------------------------------------------------------------------------------------------
+req                            dla_trans     -     @1819                                                              
+  address                      integral      30    'h39                                                               
+  dla_data                     sa(integral)  1     -                                                                  
+    [0]                        integral      256   'hd768abc94c49b103ae534799b4d7c6a56c610c0e6b66de2f5714f73db744bb47 
+    [1]                        integral      256   'hd6a80f6bb9b7b0056afd27f841943853cba08e342539b4f0035ed6050a261101 
+    [2]                        integral      256   'he2e4664d07cdb8194eb6865d94beb43ea2a19e402613611197833ed47c3f3487 
+    [3]                        integral      256   'hf023309d297f748d72a60835b71b41cf38187d8adfb8271e457b1183950ecf89 
+    [4]                        integral      256   'hd59d32305a9655df7a1786f83803953364da653b69d0636e2566c04d2fa7c6ce 
+  we                           integral      2     'h2                                                                
+  channel                      integral      1     'h1                                                                
+  length                       integral      8     'h20                                                               
+  rsp                          integral      1     'h0                                                                
+  begin_time                   time          64    3300                                                               
+  end_time                     time          64    30100                                                              
+  depth                        int           32    'd3                                                                
+  parent sequence (name)       string        11    dla_cmd_seq                                                        
+  parent sequence (full name)  string        67    uvm_test_top.env.virt_sqr.mc_top_basic_virtual_sequence.dla_cmd_seq
+  sequencer                    string        40    uvm_test_top.env.dla_agents[1].sequencer                           
+----------------------------------------------------------------------------------------------------------------------
+
+UVM_INFO ./dla_agent/dla_cmd_sequence.svh(30) @ 30100: uvm_test_top.env.dla_agents[0].sequencer@@mc_top_basic_virtual_sequence.dla_cmd_seq [dla_cmd_sequence] ----------------------------------------------------------------------------------------------------------------------
+Name                           Type          Size  Value                                                              
+----------------------------------------------------------------------------------------------------------------------
+req                            dla_trans     -     @1815                                                              
+  address                      integral      30    'h18                                                               
+  dla_data                     sa(integral)  1     -                                                                  
+    [0]                        integral      256   'haa1d70ee52e1f611974868d79c999b63d8f4307cefe0933cdfe36729a5b4b27e 
+    [1]                        integral      256   'ha83ada3534163785a1657cd5af491d3521c44c566a73524c5b69da2ec2cd7d87 
+    [2]                        integral      256   'h8b592fb96169d87a64c7130d4eab040478e15e674ab07171ceb04e8e6c0146fa 
+    [3]                        integral      256   'h9b88622e40621d0d8730600ca2dcf12ad79cb169e3d9eb03a558520f474609d4 
+    [4]                        integral      256   'hbafeebd821358a7f16ce66786ad90271e79cbc7aac382418c5128e1cb777d67e 
+  we                           integral      2     'h2                                                                
+  channel                      integral      1     'h0                                                                
+  length                       integral      8     'h20                                                               
+  rsp                          integral      1     'h0                                                                
+  begin_time                   time          64    3300                                                               
+  end_time                     time          64    30100                                                              
+  depth                        int           32    'd3                                                                
+  parent sequence (name)       string        11    dla_cmd_seq                                                        
+  parent sequence (full name)  string        67    uvm_test_top.env.virt_sqr.mc_top_basic_virtual_sequence.dla_cmd_seq
+  sequencer                    string        40    uvm_test_top.env.dla_agents[0].sequencer                           
+----------------------------------------------------------------------------------------------------------------------
+
+  try to trans  ---------      e
+  burst_length  ---------      20
+  try to trans  ---------      1a
+  burst_length  ---------      20
+UVM_INFO ./dla_agent/dla_driver.svh(65) @ 30400: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Port 1 sent command [we]=[2] at address 0x1a0
+UVM_INFO ./dla_agent/dla_driver.svh(65) @ 30400: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Port 0 sent command [we]=[2] at address 0xe0
+  try to trans  ---------      dfe0ada72b12d665138c4e8131e268c93a323ecdfad160ce7046cbf880a35bd0
+  actually trans  ---------      dfe0ada72b12d665138c4e8131e268c93a323ecdfad160ce7046cbf880a35bd0
+  burst_length  ---------      20
+  try to trans  ---------      a5a42494eb12109404fc47e6b078cb925151201256728b3599ea9169271df066
+  actually trans  ---------      a5a42494eb12109404fc47e6b078cb925151201256728b3599ea9169271df066
+  burst_length  ---------      20
+  real_address  ---------      e
+UVM_INFO ./dla_agent/dla_monitor.svh(51) @ 30500: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 30500 Monitored mosi cmd [we,mw]=[1,0] at address 0x0000000e
+  real_address  ---------      1a
+UVM_INFO ./dla_agent/dla_monitor.svh(51) @ 30500: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 30500 Monitored mosi cmd [we,mw]=[1,0] at address 0x0000001a
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(171) @ 30500: uvm_test_top.env.mc_top_chker [CMD CMPSUCD] Compared success! core out [we,mw,address]=[1,0,0xe] is equal with input
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 30700: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 30700 monitored DFI p2 cmd WRITE at bank 3, col 0x390
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 30700: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and WRITE is 5 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 30800: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xdfe0ada72b12d665138c4e8131e268c93a323ecdfad160ce7046cbf880a35bd0]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 30800: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xa5a42494eb12109404fc47e6b078cb925151201256728b3599ea9169271df066]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 30900: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 30900 Monitored MOSI WRITE DATA 0xa5a42494eb12109404fc47e6b078cb925151201256728b3599ea9169271df066
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 30900: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 30900 Monitored MOSI WRITE DATA 0xdfe0ada72b12d665138c4e8131e268c93a323ecdfad160ce7046cbf880a35bd0
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 30900: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 30700 monitored DFI LPDDR4 cmd WRITE at bank 3,col 0x390
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 31000: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xc41e3deb3797b5fab440196caab29f592fa7be0b41423ee6fe4e5fd829a18b3c]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 31000: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xab398770be2f1c8fd06d6a75f6b2be8bc56ca337e0b070f4711c9c5a4c2bfe6b]
+UVM_INFO ./dfi_agent/dfi_monitor.svh(523) @ 31100: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 31100 monitored DFI p0 cmd PRECHARGE at bank 4
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 31100: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and PRECHARGE is 2 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 31100: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 31100 Monitored MOSI WRITE DATA 0xab398770be2f1c8fd06d6a75f6b2be8bc56ca337e0b070f4711c9c5a4c2bfe6b
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 31100: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 31100 Monitored MOSI WRITE DATA 0xc41e3deb3797b5fab440196caab29f592fa7be0b41423ee6fe4e5fd829a18b3c
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 31200: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xe50df9fdafe0b06db2d7b538c353fb84ac6db5802c975ed14412ee288f7086a4]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 31200: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xa97ffeff536735cdd9ca215391ca03e9685c808f79e7c4a9fd7f7685c119a851]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 31300: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 31300 Monitored MOSI WRITE DATA 0xa97ffeff536735cdd9ca215391ca03e9685c808f79e7c4a9fd7f7685c119a851
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 31300: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 31300 Monitored MOSI WRITE DATA 0xe50df9fdafe0b06db2d7b538c353fb84ac6db5802c975ed14412ee288f7086a4
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 31400: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xfaeec94705d5662b9a286d8f66eade405273ac0ac213552847803029436c5823]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 31400: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xb4431e6758d3e3fbd0e2783beeb365663ff5c58e9aae09bce11cede746b104bc]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 31500: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 31500 Monitored MOSI WRITE DATA 0xb4431e6758d3e3fbd0e2783beeb365663ff5c58e9aae09bce11cede746b104bc
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 31500: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 31500 Monitored MOSI WRITE DATA 0xfaeec94705d5662b9a286d8f66eade405273ac0ac213552847803029436c5823
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 31600: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xcc34e7db311d3fbb0758967a50427a9153d490e26f77cde2d86396fdaecfda13]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 31600: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xb2799c784ce7913a5dd0ff67143c060f830c1639285a36257f430b7f2df66ef1]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 31700: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 31700 Monitored MOSI WRITE DATA 0xb2799c784ce7913a5dd0ff67143c060f830c1639285a36257f430b7f2df66ef1
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 31700: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 31700 Monitored MOSI WRITE DATA 0xcc34e7db311d3fbb0758967a50427a9153d490e26f77cde2d86396fdaecfda13
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 31700: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 31700 monitored DFI WRDATA 0xa1ef4611981513859812972c96a162ce8c5c769e8349c90773f009a75f5c5623, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 31700: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xa1ef4611981513859812972c96a162ce8c5c769e8349c90773f009a75f5c5623] is equal
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 31800: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xdc444cd36e9819638077b8e7e983a51fc8517bf14858c133ebc96cc35bf4d81c]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 31800: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xac026ad6fa7c6a063e4dcf84820dec38adee1b333a14d3911fdf4e96e7fb77aa]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 31900: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 31900 Monitored MOSI WRITE DATA 0xac026ad6fa7c6a063e4dcf84820dec38adee1b333a14d3911fdf4e96e7fb77aa
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 31900: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 31900 Monitored MOSI WRITE DATA 0xdc444cd36e9819638077b8e7e983a51fc8517bf14858c133ebc96cc35bf4d81c
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 31900: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 31900 monitored DFI WRDATA 0xa2b1060d4148842b6dc466c2c4cb607fcb521bd8cac1ce495df2bd3e0ef9f35a, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 31900: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xa2b1060d4148842b6dc466c2c4cb607fcb521bd8cac1ce495df2bd3e0ef9f35a] is equal
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 32000: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xf044776da711fadfa483d157d9f8729413c3225cb4c8e04b2a37b8b81cca5bdf]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 32000: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0x9a98548197d89ec2327db30be197d36425204394e71efc031579b3040ab7214f]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 32100: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 32100 Monitored MOSI WRITE DATA 0x9a98548197d89ec2327db30be197d36425204394e71efc031579b3040ab7214f
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 32100: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 32100 Monitored MOSI WRITE DATA 0xf044776da711fadfa483d157d9f8729413c3225cb4c8e04b2a37b8b81cca5bdf
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 32200: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xf61a6fa18e4fdd5513582f0f814512b124b2ed37cc5dd7505ddaa7b231bc694d]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 32200: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0x8a72c92c3882e82bf1bf3c3f6053cb23168249d44bd544e6ae09602edcc00d73]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 32300: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 32300 Monitored MOSI WRITE DATA 0x8a72c92c3882e82bf1bf3c3f6053cb23168249d44bd544e6ae09602edcc00d73
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 32300: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 32300 Monitored MOSI WRITE DATA 0xf61a6fa18e4fdd5513582f0f814512b124b2ed37cc5dd7505ddaa7b231bc694d
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 32400: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xee651107ebed9265655017fd0ba8abb88bf832f73dcb239d48cedb9d362c77f9]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 32400: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xb4d8549a321a7406dd99fca72e89e71e5114b844542e0923ca2b400384cc4715]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 32500: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 32500 Monitored MOSI WRITE DATA 0xb4d8549a321a7406dd99fca72e89e71e5114b844542e0923ca2b400384cc4715
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 32500: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 32500 Monitored MOSI WRITE DATA 0xee651107ebed9265655017fd0ba8abb88bf832f73dcb239d48cedb9d362c77f9
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 32600: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xc5e35f888b399c91b9b9b2784a271ca15e3927fab9fafb1b18dba69757fbf129]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 32600: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0x85bbb3e6757365617edf02d2f8a68834adc333f6214c150e435dcad5fe55a275]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 32700: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 32700 Monitored MOSI WRITE DATA 0x85bbb3e6757365617edf02d2f8a68834adc333f6214c150e435dcad5fe55a275
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 32700: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 32700 Monitored MOSI WRITE DATA 0xc5e35f888b399c91b9b9b2784a271ca15e3927fab9fafb1b18dba69757fbf129
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 32700: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 32700 monitored DFI WRDATA 0xfcdd5ede21ed2aef0284ad7257e2ed01f3af9aa976f9e87f09072920cbaded96, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 32700: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xfcdd5ede21ed2aef0284ad7257e2ed01f3af9aa976f9e87f09072920cbaded96] is equal
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 32800: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xfbfe94c6c8578619f83806ef6ebd8f574dbc1f8c904ad8301c30446656fb0838]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 32800: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0x92e6c8c6762eb6f7172dbe9f4db8df20d78517b08ce92fff848a87c6e0acb81c]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 32900: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 32900 Monitored MOSI WRITE DATA 0x92e6c8c6762eb6f7172dbe9f4db8df20d78517b08ce92fff848a87c6e0acb81c
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 32900: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 32900 Monitored MOSI WRITE DATA 0xfbfe94c6c8578619f83806ef6ebd8f574dbc1f8c904ad8301c30446656fb0838
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 32900: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 32900 monitored DFI WRDATA 0xd755676491a60bf47d30052633b16b684f4b06ca9d2ab53251a647b9f8783359, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 32900: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xd755676491a60bf47d30052633b16b684f4b06ca9d2ab53251a647b9f8783359] is equal
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 33000: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xd984708f85f3a8ca0a33f34bb494ebc99e1aa801113324a4aa123456448dcccb]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 33000: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xa7a41979cb423760fcaece8866803a19e82daf62e15ba37d9b23abbf200c182a]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 33100: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 33100 Monitored MOSI WRITE DATA 0xa7a41979cb423760fcaece8866803a19e82daf62e15ba37d9b23abbf200c182a
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 33100: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 33100 Monitored MOSI WRITE DATA 0xd984708f85f3a8ca0a33f34bb494ebc99e1aa801113324a4aa123456448dcccb
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 33200: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xf89de9e715ebb8e8273d7331883bcd0b9099c70142ddb97ccd01feb6ce46aa1d]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 33200: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0x8d8ec1823dc04535405ed2718aa9103321c99e67a3e997b920d8e53b811fcd54]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 33300: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 33300 Monitored MOSI WRITE DATA 0x8d8ec1823dc04535405ed2718aa9103321c99e67a3e997b920d8e53b811fcd54
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 33300: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 33300 Monitored MOSI WRITE DATA 0xf89de9e715ebb8e8273d7331883bcd0b9099c70142ddb97ccd01feb6ce46aa1d
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 33400: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xe1c8a117c5b05adf691dd81c1d8ef0560c4b9c2caed0785c868f355a3e7f6d7b]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 33400: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xbf809a4780d1f57461d185f1cc850f03288335d1629c88ca648aa53e20ee4130]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 33500: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 33500 Monitored MOSI WRITE DATA 0xbf809a4780d1f57461d185f1cc850f03288335d1629c88ca648aa53e20ee4130
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 33500: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 33500 Monitored MOSI WRITE DATA 0xe1c8a117c5b05adf691dd81c1d8ef0560c4b9c2caed0785c868f355a3e7f6d7b
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 33600: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xd2913b7ff958215166a57d1029651c6be8186db22bebf53595f2c10d200242ff]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 33600: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0x9ad1f95ac9839e377f0a3d207e8a7b832ea8dc60912963f7c69f0831bce78860]
+UVM_INFO ./dfi_agent/dfi_monitor.svh(525) @ 33700: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 33700 monitored DFI p0 cmd ACTIVATE at bank 4, row 0x0
+UVM_INFO ./dfi_agent/dfi_monitor.svh(80) @ 33700: uvm_test_top.env.dfi_mon [tRRD MET] [DB]Time interval between ACTIVATE and ACTIVATE is 64 ns >= tRRD= 10 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(119) @ 33700: uvm_test_top.env.dfi_mon [tRC MET] [SB]Time interval between ACTIVATE and ACTIVATE is 337 ns >= tRC= 63 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(108) @ 33700: uvm_test_top.env.dfi_mon [tFAW MET] [FAW]Current Four Activate Bank window is 260 ns >= tFAW= 30 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 33700: uvm_test_top.env.dfi_mon [DFI tRP_ns MET] [DFI]Time interval between PRECHARGE and ACTIVATE is 26 ns >= tRP_ns= 21 ns.
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 33700: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 33700 Monitored MOSI WRITE DATA 0x9ad1f95ac9839e377f0a3d207e8a7b832ea8dc60912963f7c69f0831bce78860
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 33700: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 33700 Monitored MOSI WRITE DATA 0xd2913b7ff958215166a57d1029651c6be8186db22bebf53595f2c10d200242ff
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 33800: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xc96ec10502aa7cff9605c400f3a542f457dc21f85ccf6e9adfc4d9318ca4fd90]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 33800: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xbe559d5805b8eb91c186bf65cf0256af99d072c103adea56a936d745eb960d73]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 33900: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 33900 Monitored MOSI WRITE DATA 0xbe559d5805b8eb91c186bf65cf0256af99d072c103adea56a936d745eb960d73
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 33900: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 33900 Monitored MOSI WRITE DATA 0xc96ec10502aa7cff9605c400f3a542f457dc21f85ccf6e9adfc4d9318ca4fd90
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 34000: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xd979ea27514c25f79bfa1e43d62271e90b224cd745fb729e4d00f49002cf687c]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 34000: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xa3922b5e5dab5c6f06bb51ceedc1ddcadcbece0cd3c34cae4100f3bb2e814666]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 34100: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 34100 Monitored MOSI WRITE DATA 0xa3922b5e5dab5c6f06bb51ceedc1ddcadcbece0cd3c34cae4100f3bb2e814666
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 34100: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 34100 Monitored MOSI WRITE DATA 0xd979ea27514c25f79bfa1e43d62271e90b224cd745fb729e4d00f49002cf687c
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 34200: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xd83b664582f662133784853b1c1fcc9156fcce7e4f8a4ebac73e680779bc85f7]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 34200: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0x8959f118f33510cca94949d4f447032fbaa53af379abcdcd389a889d1094bce7]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 34300: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 34300 Monitored MOSI WRITE DATA 0x8959f118f33510cca94949d4f447032fbaa53af379abcdcd389a889d1094bce7
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 34300: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 34300 Monitored MOSI WRITE DATA 0xd83b664582f662133784853b1c1fcc9156fcce7e4f8a4ebac73e680779bc85f7
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 34400: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xdeab3f7ab7a33fecd266f3cdea8a28cd4756542551c664839fcce937d2e2ffdc]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 34400: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xa5a655725d4f853b20484331fc3d21cc7f5b03bde15585c6be7c96d71839e25a]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 34500: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 34500 Monitored MOSI WRITE DATA 0xa5a655725d4f853b20484331fc3d21cc7f5b03bde15585c6be7c96d71839e25a
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 34500: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 34500 Monitored MOSI WRITE DATA 0xdeab3f7ab7a33fecd266f3cdea8a28cd4756542551c664839fcce937d2e2ffdc
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 34600: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xc0aa7c5b438e83ed51b9450bf39d48d57168a0a35e5d011f3a5b627dae451290]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 34600: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0x9de244e6dc417738214d49d936760a490c0ed8b98c4af63e9e6097211c14d6fe]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 34700: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 34700 Monitored MOSI WRITE DATA 0x9de244e6dc417738214d49d936760a490c0ed8b98c4af63e9e6097211c14d6fe
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 34700: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 34700 Monitored MOSI WRITE DATA 0xc0aa7c5b438e83ed51b9450bf39d48d57168a0a35e5d011f3a5b627dae451290
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 34800: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xc416d2614790d7fc58718289ae39033094cc39e7811a12fa32d1544a2e016b18]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 34800: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xaeb21658038618ac6955bbad33a31961d7dcf6db4834c043ea7f77298d00ddb1]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 34900: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 34900 Monitored MOSI WRITE DATA 0xaeb21658038618ac6955bbad33a31961d7dcf6db4834c043ea7f77298d00ddb1
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 34900: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 34900 Monitored MOSI WRITE DATA 0xc416d2614790d7fc58718289ae39033094cc39e7811a12fa32d1544a2e016b18
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 35000: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xfabac1b987b6c7811bdc273479d7bb9f1cf7afa47c6eb8e02fb9b641a22ad6e5]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 35000: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xb744674a56f981fcdb50a9ec66ca9de0f3657f4b83cb43c676468a6d3d4c54dc]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 35100: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 35100 Monitored MOSI WRITE DATA 0xb744674a56f981fcdb50a9ec66ca9de0f3657f4b83cb43c676468a6d3d4c54dc
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 35100: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 35100 Monitored MOSI WRITE DATA 0xfabac1b987b6c7811bdc273479d7bb9f1cf7afa47c6eb8e02fb9b641a22ad6e5
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 35200: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xd49b6a6bf6f2c2cdd548751085771f5773bd5495909f3898277298bb0ebef57c]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 35200: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xa800bae0c7e7ee31801de3eed049424544a65be569769bbafeb2681c70e4763e]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 35300: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 35300 Monitored MOSI WRITE DATA 0xa800bae0c7e7ee31801de3eed049424544a65be569769bbafeb2681c70e4763e
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 35300: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 35300 Monitored MOSI WRITE DATA 0xd49b6a6bf6f2c2cdd548751085771f5773bd5495909f3898277298bb0ebef57c
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 35400: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xc42e3f4592aca5f377eba0876a3386a351de44940438d6de42e3bbf34505e265]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 35400: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xb84e006a4858a4d9d1e47229bd3afa949a6b8136eb8f6ecf5ea7ed41d46cdbdc]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 35500: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 35500 Monitored MOSI WRITE DATA 0xb84e006a4858a4d9d1e47229bd3afa949a6b8136eb8f6ecf5ea7ed41d46cdbdc
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 35500: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 35500 Monitored MOSI WRITE DATA 0xc42e3f4592aca5f377eba0876a3386a351de44940438d6de42e3bbf34505e265
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 35600: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xc30a8f47d2565abff0033e45e691e0be223f9b28e63868dab890c7a974b7109e]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 35600: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0x8f53fec3ffcb7b95fbc471d85f088cc26436247c34ccbaf2a298ff0a8f8c3ff8]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 35700: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 35700 Monitored MOSI WRITE DATA 0x8f53fec3ffcb7b95fbc471d85f088cc26436247c34ccbaf2a298ff0a8f8c3ff8
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 35700: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 35700 Monitored MOSI WRITE DATA 0xc30a8f47d2565abff0033e45e691e0be223f9b28e63868dab890c7a974b7109e
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 35800: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xdf676b10533c8dff9473612ae86ab0e79212ec8e7c27fc3279145f130b51b644]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 35800: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0x95d844c74ef1d8c56a1295d70fb4c13443e9eaa952f770eed168eb88e21df5cf]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 35900: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 35900 Monitored MOSI WRITE DATA 0x95d844c74ef1d8c56a1295d70fb4c13443e9eaa952f770eed168eb88e21df5cf
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 35900: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 35900 Monitored MOSI WRITE DATA 0xdf676b10533c8dff9473612ae86ab0e79212ec8e7c27fc3279145f130b51b644
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 36000: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xd82f1978e73a6e90404d1df9eb30e2097a161c183d37cc0b488a5f9ccefa2017]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 36000: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xb7b9f5c5e360887b1070c6071010c27722cf054a0cd22031798aa57131934fe0]
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 36100: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 36100 monitored DFI p2 cmd WRITE at bank 4, col 0x180
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 36100: uvm_test_top.env.dfi_mon [DFI tRCD_ns MET] [DFI]Time interval between ACTIVATE and WRITE is 24 ns >= tRCD_ns= 18 ns.
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 36100: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 36100 Monitored MOSI WRITE DATA 0xb7b9f5c5e360887b1070c6071010c27722cf054a0cd22031798aa57131934fe0
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 36100: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 36100 Monitored MOSI WRITE DATA 0xd82f1978e73a6e90404d1df9eb30e2097a161c183d37cc0b488a5f9ccefa2017
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 36200: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xc50b786aa1ac7ad7ff016c2fa4d79591b85575a30a7e8b9b4ba4bf51d6f57e94]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 36200: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xb6411715491cee1c778fe1ed1ea95beccd4bac91f5add1bcf5cb680f7395e276]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 36300: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 36300 Monitored MOSI WRITE DATA 0xb6411715491cee1c778fe1ed1ea95beccd4bac91f5add1bcf5cb680f7395e276
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 36300: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 36300 Monitored MOSI WRITE DATA 0xc50b786aa1ac7ad7ff016c2fa4d79591b85575a30a7e8b9b4ba4bf51d6f57e94
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 36300: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 36100 monitored DFI LPDDR4 cmd WRITE at bank 4,col 0x180
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 36400: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xc84006cc59a160e3549cf8ed4a97c87d0da9606c85b60cd6a1b16ca08ee25790]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 36400: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0x84cac84c06fbf754a17e9479de7d8e30bbff09064ea7dbfab6150f811ed7bbbc]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 36500: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 36500 Monitored MOSI WRITE DATA 0x84cac84c06fbf754a17e9479de7d8e30bbff09064ea7dbfab6150f811ed7bbbc
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 36500: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 36500 Monitored MOSI WRITE DATA 0xc84006cc59a160e3549cf8ed4a97c87d0da9606c85b60cd6a1b16ca08ee25790
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 36600: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xe1ee327e8af927fbfb2a6bea2fe9102b917b0df973fb5337a0a8f72bac4e8f43]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 36600: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0x9755b766de8f4d6f2f4002203ee9ae0c6fb5378de7fdee8925dbe06825c8f1c8]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 36700: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 36700 Monitored MOSI WRITE DATA 0x9755b766de8f4d6f2f4002203ee9ae0c6fb5378de7fdee8925dbe06825c8f1c8
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 36700: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 36700 Monitored MOSI WRITE DATA 0xe1ee327e8af927fbfb2a6bea2fe9102b917b0df973fb5337a0a8f72bac4e8f43
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 36800: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xd24aea78867807d4747fcc98cc037beadb77a03edf919a308b0f8668f6a392fc]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 36800: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xa043fd6e07b65db3888a6fb3ad8f2bdd3185ff05aad1a30554ae11e99fd0959c]
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 36900: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 36900 Monitored MOSI WRITE DATA 0xa043fd6e07b65db3888a6fb3ad8f2bdd3185ff05aad1a30554ae11e99fd0959c
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 36900: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 36900 Monitored MOSI WRITE DATA 0xd24aea78867807d4747fcc98cc037beadb77a03edf919a308b0f8668f6a392fc
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 37000: uvm_test_top.env.dla_agents[1].driver [dla_driver] MOSI Nort 1 sent WDATA[data=[0xca871d0ff3919abe9d027044bc9bb9b3160435c39beb610bdb23348ac97ea51e]
+UVM_INFO ./dla_agent/dla_driver.svh(98) @ 37000: uvm_test_top.env.dla_agents[0].driver [dla_driver] MOSI Nort 0 sent WDATA[data=[0xb7580c4840398f17bf4fe0fd3e88ce48fb670012b5f3102055f5708353793a28]
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 37100: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 37100 monitored DFI p2 cmd WRITE at bank 4, col 0x390
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 37100: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and WRITE is 5 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 37100: uvm_test_top.env.dla_agents[0].monitor [dla_monitor] Time 37100 Monitored MOSI WRITE DATA 0xb7580c4840398f17bf4fe0fd3e88ce48fb670012b5f3102055f5708353793a28
+UVM_INFO ./dla_agent/dla_monitor.svh(78) @ 37100: uvm_test_top.env.dla_agents[1].monitor [dla_monitor] Time 37100 Monitored MOSI WRITE DATA 0xca871d0ff3919abe9d027044bc9bb9b3160435c39beb610bdb23348ac97ea51e
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 37300: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 37100 monitored DFI LPDDR4 cmd WRITE at bank 4,col 0x390
+UVM_INFO ./dfi_agent/dfi_monitor.svh(523) @ 37500: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 37500 monitored DFI p0 cmd PRECHARGE at bank 5
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 37500: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and PRECHARGE is 2 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 38100: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 38100 monitored DFI WRDATA 0x956319be0f4edf2661348c583033a1f924829a35efc7aa32fc40e1c84a193482, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 38100: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0x956319be0f4edf2661348c583033a1f924829a35efc7aa32fc40e1c84a193482] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 38300: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 38300 monitored DFI WRDATA 0x9a96c45875d8e58f175840939a23bd63d18dbe5596d9cbd999946d014462f3d5, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 38300: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0x9a96c45875d8e58f175840939a23bd63d18dbe5596d9cbd999946d014462f3d5] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 39100: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 39100 monitored DFI WRDATA 0xda6bf264046c324d157811a2688ed924040fbaac6074fd933c43086348341fba, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 39100: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xda6bf264046c324d157811a2688ed924040fbaac6074fd933c43086348341fba] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 39300: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 39300 monitored DFI WRDATA 0xfeb073442fcae683130c8776e7f63b2c51343113373f0ef94acecc7e4cac0d99, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 39300: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xfeb073442fcae683130c8776e7f63b2c51343113373f0ef94acecc7e4cac0d99] is equal
+UVM_INFO ./dfi_agent/dfi_monitor.svh(525) @ 40100: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 40100 monitored DFI p0 cmd ACTIVATE at bank 5, row 0x0
+UVM_INFO ./dfi_agent/dfi_monitor.svh(80) @ 40100: uvm_test_top.env.dfi_mon [tRRD MET] [DB]Time interval between ACTIVATE and ACTIVATE is 64 ns >= tRRD= 10 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(119) @ 40100: uvm_test_top.env.dfi_mon [tRC MET] [SB]Time interval between ACTIVATE and ACTIVATE is 401 ns >= tRC= 63 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(108) @ 40100: uvm_test_top.env.dfi_mon [tFAW MET] [FAW]Current Four Activate Bank window is 256 ns >= tFAW= 30 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 40100: uvm_test_top.env.dfi_mon [DFI tRP_ns MET] [DFI]Time interval between PRECHARGE and ACTIVATE is 26 ns >= tRP_ns= 21 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 42500: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 42500 monitored DFI p2 cmd WRITE at bank 5, col 0x180
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 42500: uvm_test_top.env.dfi_mon [DFI tRCD_ns MET] [DFI]Time interval between ACTIVATE and WRITE is 24 ns >= tRCD_ns= 18 ns.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 42700: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 42500 monitored DFI LPDDR4 cmd WRITE at bank 5,col 0x180
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 43500: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 43500 monitored DFI p2 cmd WRITE at bank 5, col 0x390
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 43500: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and WRITE is 5 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 43700: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 43500 monitored DFI LPDDR4 cmd WRITE at bank 5,col 0x390
+UVM_INFO ./dfi_agent/dfi_monitor.svh(523) @ 43900: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 43900 monitored DFI p0 cmd PRECHARGE at bank 6
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 43900: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and PRECHARGE is 2 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 44500: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 44500 monitored DFI WRDATA 0x9313abd71765d1cb56041b5ee124936581b9c0f4ed2968a71a82baa315e4fa3d, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 44500: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0x9313abd71765d1cb56041b5ee124936581b9c0f4ed2968a71a82baa315e4fa3d] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 44700: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 44700 monitored DFI WRDATA 0x9dd755a3329f8a96698dff33c149fb5d8a158055c344457e7cf4f15c6cb11327, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 44700: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0x9dd755a3329f8a96698dff33c149fb5d8a158055c344457e7cf4f15c6cb11327] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 45500: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 45500 monitored DFI WRDATA 0xfe80dbc87ea92f5c7a1219a8afe12801135f5c8c19f0469f5e95197e19577769, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 45500: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xfe80dbc87ea92f5c7a1219a8afe12801135f5c8c19f0469f5e95197e19577769] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 45700: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 45700 monitored DFI WRDATA 0xdd7f51292be5b7258a21153a8157deb830306cb5b7c8ebd0ede8a496788ebd73, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 45700: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xdd7f51292be5b7258a21153a8157deb830306cb5b7c8ebd0ede8a496788ebd73] is equal
+UVM_INFO ./dfi_agent/dfi_monitor.svh(525) @ 46500: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 46500 monitored DFI p0 cmd ACTIVATE at bank 6, row 0x0
+UVM_INFO ./dfi_agent/dfi_monitor.svh(80) @ 46500: uvm_test_top.env.dfi_mon [tRRD MET] [DB]Time interval between ACTIVATE and ACTIVATE is 64 ns >= tRRD= 10 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(119) @ 46500: uvm_test_top.env.dfi_mon [tRC MET] [SB]Time interval between ACTIVATE and ACTIVATE is 465 ns >= tRC= 63 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(108) @ 46500: uvm_test_top.env.dfi_mon [tFAW MET] [FAW]Current Four Activate Bank window is 256 ns >= tFAW= 30 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 46500: uvm_test_top.env.dfi_mon [DFI tRP_ns MET] [DFI]Time interval between PRECHARGE and ACTIVATE is 26 ns >= tRP_ns= 21 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 48900: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 48900 monitored DFI p2 cmd WRITE at bank 6, col 0x180
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 48900: uvm_test_top.env.dfi_mon [DFI tRCD_ns MET] [DFI]Time interval between ACTIVATE and WRITE is 24 ns >= tRCD_ns= 18 ns.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 49100: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 48900 monitored DFI LPDDR4 cmd WRITE at bank 6,col 0x180
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 49900: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 49900 monitored DFI p2 cmd WRITE at bank 6, col 0x390
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 49900: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and WRITE is 5 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 50100: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 49900 monitored DFI LPDDR4 cmd WRITE at bank 6,col 0x390
+UVM_INFO ./dfi_agent/dfi_monitor.svh(523) @ 50300: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 50300 monitored DFI p0 cmd PRECHARGE at bank 7
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 50300: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and PRECHARGE is 2 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 50900: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 50900 monitored DFI WRDATA 0x888bc3a47857ba092300be40d479e33916914d65e769161f01cff5309040176f, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 50900: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0x888bc3a47857ba092300be40d479e33916914d65e769161f01cff5309040176f] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 51100: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 51100 monitored DFI WRDATA 0xb997798029fbab1cc94a999126ed13a32f2aa4528f4bb44875d906f98bf34ff8, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 51100: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xb997798029fbab1cc94a999126ed13a32f2aa4528f4bb44875d906f98bf34ff8] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 51900: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 51900 monitored DFI WRDATA 0xc13704ca399d17851c7be7e49b7288e35954455801716b2e5454549e1a882a90, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 51900: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xc13704ca399d17851c7be7e49b7288e35954455801716b2e5454549e1a882a90] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 52100: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 52100 monitored DFI WRDATA 0xf673048c0431e0909ed674e7230103dbb08f668de5207f0b3fdaf3c38d27afe9, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 52100: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xf673048c0431e0909ed674e7230103dbb08f668de5207f0b3fdaf3c38d27afe9] is equal
+UVM_INFO ./dfi_agent/dfi_monitor.svh(525) @ 52900: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 52900 monitored DFI p0 cmd ACTIVATE at bank 7, row 0x0
+UVM_INFO ./dfi_agent/dfi_monitor.svh(80) @ 52900: uvm_test_top.env.dfi_mon [tRRD MET] [DB]Time interval between ACTIVATE and ACTIVATE is 64 ns >= tRRD= 10 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(119) @ 52900: uvm_test_top.env.dfi_mon [tRC MET] [SB]Time interval between ACTIVATE and ACTIVATE is 529 ns >= tRC= 63 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(108) @ 52900: uvm_test_top.env.dfi_mon [tFAW MET] [FAW]Current Four Activate Bank window is 256 ns >= tFAW= 30 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 52900: uvm_test_top.env.dfi_mon [DFI tRP_ns MET] [DFI]Time interval between PRECHARGE and ACTIVATE is 26 ns >= tRP_ns= 21 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 55300: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 55300 monitored DFI p2 cmd WRITE at bank 7, col 0x180
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 55300: uvm_test_top.env.dfi_mon [DFI tRCD_ns MET] [DFI]Time interval between ACTIVATE and WRITE is 24 ns >= tRCD_ns= 18 ns.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 55500: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 55300 monitored DFI LPDDR4 cmd WRITE at bank 7,col 0x180
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 56300: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 56300 monitored DFI p2 cmd WRITE at bank 7, col 0x390
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 56300: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and WRITE is 5 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 56500: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 56300 monitored DFI LPDDR4 cmd WRITE at bank 7,col 0x390
+UVM_INFO ./dfi_agent/dfi_monitor.svh(523) @ 56900: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 56900 monitored DFI p0 cmd PRECHARGE at bank 0
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 56900: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and PRECHARGE is 3 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dla_agent/dla_cmd_sequence.svh(30) @ 56900: uvm_test_top.env.dla_agents[1].sequencer@@mc_top_basic_virtual_sequence.dla_cmd_seq [dla_cmd_sequence] ----------------------------------------------------------------------------------------------------------------------
+Name                           Type          Size  Value                                                              
+----------------------------------------------------------------------------------------------------------------------
+req                            dla_trans     -     @1832                                                              
+  address                      integral      30    'h1a                                                               
+  dla_data                     sa(integral)  1     -                                                                  
+    [0]                        integral      256   'hdfe0ada72b12d665138c4e8131e268c93a323ecdfad160ce7046cbf880a35bd0 
+    [1]                        integral      256   'hc41e3deb3797b5fab440196caab29f592fa7be0b41423ee6fe4e5fd829a18b3c 
+    [2]                        integral      256   'he50df9fdafe0b06db2d7b538c353fb84ac6db5802c975ed14412ee288f7086a4 
+    [3]                        integral      256   'hfaeec94705d5662b9a286d8f66eade405273ac0ac213552847803029436c5823 
+    [4]                        integral      256   'hcc34e7db311d3fbb0758967a50427a9153d490e26f77cde2d86396fdaecfda13 
+  we                           integral      2     'h2                                                                
+  channel                      integral      1     'h1                                                                
+  length                       integral      8     'h20                                                               
+  rsp                          integral      1     'h0                                                                
+  begin_time                   time          64    30100                                                              
+  end_time                     time          64    56900                                                              
+  depth                        int           32    'd3                                                                
+  parent sequence (name)       string        11    dla_cmd_seq                                                        
+  parent sequence (full name)  string        67    uvm_test_top.env.virt_sqr.mc_top_basic_virtual_sequence.dla_cmd_seq
+  sequencer                    string        40    uvm_test_top.env.dla_agents[1].sequencer                           
+----------------------------------------------------------------------------------------------------------------------
+
+UVM_INFO ./dla_agent/dla_cmd_sequence.svh(30) @ 56900: uvm_test_top.env.dla_agents[0].sequencer@@mc_top_basic_virtual_sequence.dla_cmd_seq [dla_cmd_sequence] ----------------------------------------------------------------------------------------------------------------------
+Name                           Type          Size  Value                                                              
+----------------------------------------------------------------------------------------------------------------------
+req                            dla_trans     -     @1837                                                              
+  address                      integral      30    'he                                                                
+  dla_data                     sa(integral)  1     -                                                                  
+    [0]                        integral      256   'ha5a42494eb12109404fc47e6b078cb925151201256728b3599ea9169271df066 
+    [1]                        integral      256   'hab398770be2f1c8fd06d6a75f6b2be8bc56ca337e0b070f4711c9c5a4c2bfe6b 
+    [2]                        integral      256   'ha97ffeff536735cdd9ca215391ca03e9685c808f79e7c4a9fd7f7685c119a851 
+    [3]                        integral      256   'hb4431e6758d3e3fbd0e2783beeb365663ff5c58e9aae09bce11cede746b104bc 
+    [4]                        integral      256   'hb2799c784ce7913a5dd0ff67143c060f830c1639285a36257f430b7f2df66ef1 
+  we                           integral      2     'h2                                                                
+  channel                      integral      1     'h0                                                                
+  length                       integral      8     'h20                                                               
+  rsp                          integral      1     'h0                                                                
+  begin_time                   time          64    30100                                                              
+  end_time                     time          64    56900                                                              
+  depth                        int           32    'd3                                                                
+  parent sequence (name)       string        11    dla_cmd_seq                                                        
+  parent sequence (full name)  string        67    uvm_test_top.env.virt_sqr.mc_top_basic_virtual_sequence.dla_cmd_seq
+  sequencer                    string        40    uvm_test_top.env.dla_agents[0].sequencer                           
+----------------------------------------------------------------------------------------------------------------------
+
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 57300: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 57300 monitored DFI WRDATA 0x95efa16720858db2fcef445a7d385430870b7561fa7cdefa5d2983911bd38f84, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 57300: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0x95efa16720858db2fcef445a7d385430870b7561fa7cdefa5d2983911bd38f84] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 57500: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 57500 monitored DFI WRDATA 0x939f8233c17b31a20c1a86b7e9be3af68bb87b9920e449c17f4badf59668a255, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 57500: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0x939f8233c17b31a20c1a86b7e9be3af68bb87b9920e449c17f4badf59668a255] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 58300: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 58300 monitored DFI WRDATA 0xdb90f1ede5613eeb503e7eed802682fcdb22be56047be884eef0425fd9f553be, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 58300: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xdb90f1ede5613eeb503e7eed802682fcdb22be56047be884eef0425fd9f553be] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 58500: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 58500 monitored DFI WRDATA 0xccb52f7ae341d5a25e43e8b8be06a1f865d44b2cd8e7be02a2ea36d32ad3b524, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 58500: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xccb52f7ae341d5a25e43e8b8be06a1f865d44b2cd8e7be02a2ea36d32ad3b524] is equal
+UVM_INFO ./dfi_agent/dfi_monitor.svh(525) @ 59500: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 59500 monitored DFI p0 cmd ACTIVATE at bank 0, row 0x1
+UVM_INFO ./dfi_agent/dfi_monitor.svh(80) @ 59500: uvm_test_top.env.dfi_mon [tRRD MET] [DB]Time interval between ACTIVATE and ACTIVATE is 66 ns >= tRRD= 10 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(119) @ 59500: uvm_test_top.env.dfi_mon [tRC MET] [SB]Time interval between ACTIVATE and ACTIVATE is 518 ns >= tRC= 63 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(108) @ 59500: uvm_test_top.env.dfi_mon [tFAW MET] [FAW]Current Four Activate Bank window is 258 ns >= tFAW= 30 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 59500: uvm_test_top.env.dfi_mon [DFI tRP_ns MET] [DFI]Time interval between PRECHARGE and ACTIVATE is 26 ns >= tRP_ns= 21 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 61900: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 61900 monitored DFI p2 cmd WRITE at bank 0, col 0x180
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 61900: uvm_test_top.env.dfi_mon [DFI tRCD_ns MET] [DFI]Time interval between ACTIVATE and WRITE is 24 ns >= tRCD_ns= 18 ns.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 62100: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 61900 monitored DFI LPDDR4 cmd WRITE at bank 0,col 0x180
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 62900: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 62900 monitored DFI p2 cmd WRITE at bank 0, col 0x390
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 62900: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and WRITE is 5 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 63100: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 62900 monitored DFI LPDDR4 cmd WRITE at bank 0,col 0x390
+UVM_INFO ./dfi_agent/dfi_monitor.svh(523) @ 63500: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 63500 monitored DFI p0 cmd PRECHARGE at bank 1
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 63500: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and PRECHARGE is 3 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 63900: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 63900 monitored DFI WRDATA 0xa7fddea64bcc9cd6b6ce7a3de691cf0cff4a55b93c2619b3b802430c392fa391, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 63900: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xa7fddea64bcc9cd6b6ce7a3de691cf0cff4a55b93c2619b3b802430c392fa391] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 64100: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 64100 monitored DFI WRDATA 0xb94149dd32655b52826dea5c0e3a0b2f581e406249d7184aacff80a2fd8a1b3f, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 64100: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xb94149dd32655b52826dea5c0e3a0b2f581e406249d7184aacff80a2fd8a1b3f] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 64900: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 64900 monitored DFI WRDATA 0xf34642e89d66d263c1b6639354111e8ae0ec5b9fe096723813320be4a9fadac7, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 64900: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xf34642e89d66d263c1b6639354111e8ae0ec5b9fe096723813320be4a9fadac7] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 65100: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 65100 monitored DFI WRDATA 0xf6a9facd69d5f15995a6291bde289e4952d4f00bb0e32ed69268efba58be0bba, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 65100: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xf6a9facd69d5f15995a6291bde289e4952d4f00bb0e32ed69268efba58be0bba] is equal
+UVM_INFO ./dfi_agent/dfi_monitor.svh(525) @ 66100: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 66100 monitored DFI p0 cmd ACTIVATE at bank 1, row 0x1
+UVM_INFO ./dfi_agent/dfi_monitor.svh(80) @ 66100: uvm_test_top.env.dfi_mon [tRRD MET] [DB]Time interval between ACTIVATE and ACTIVATE is 66 ns >= tRRD= 10 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(119) @ 66100: uvm_test_top.env.dfi_mon [tRC MET] [SB]Time interval between ACTIVATE and ACTIVATE is 516 ns >= tRC= 63 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(108) @ 66100: uvm_test_top.env.dfi_mon [tFAW MET] [FAW]Current Four Activate Bank window is 260 ns >= tFAW= 30 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 66100: uvm_test_top.env.dfi_mon [DFI tRP_ns MET] [DFI]Time interval between PRECHARGE and ACTIVATE is 26 ns >= tRP_ns= 21 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 68500: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 68500 monitored DFI p2 cmd WRITE at bank 1, col 0x180
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 68500: uvm_test_top.env.dfi_mon [DFI tRCD_ns MET] [DFI]Time interval between ACTIVATE and WRITE is 24 ns >= tRCD_ns= 18 ns.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 68700: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 68500 monitored DFI LPDDR4 cmd WRITE at bank 1,col 0x180
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 69500: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 69500 monitored DFI p2 cmd WRITE at bank 1, col 0x390
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 69500: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and WRITE is 5 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 69700: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 69500 monitored DFI LPDDR4 cmd WRITE at bank 1,col 0x390
+UVM_INFO ./dfi_agent/dfi_monitor.svh(523) @ 70100: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 70100 monitored DFI p0 cmd PRECHARGE at bank 2
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 70100: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and PRECHARGE is 3 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 70500: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 70500 monitored DFI WRDATA 0xb8f392e71936de451523757fb3369811962d25b0b4ea898b48eabd0a77447b06, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 70500: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xb8f392e71936de451523757fb3369811962d25b0b4ea898b48eabd0a77447b06] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 70700: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 70700 monitored DFI WRDATA 0x80fc293543d315e8d2be23b1d42ee8f9a396fda660dc2e3e7f13df0099bd0f21, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 70700: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0x80fc293543d315e8d2be23b1d42ee8f9a396fda660dc2e3e7f13df0099bd0f21] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 71500: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 71500 monitored DFI WRDATA 0xfc6f5178d4496fa813c49aa07e254d34c498d5158972e736407c1e052063dd31, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 71500: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xfc6f5178d4496fa813c49aa07e254d34c498d5158972e736407c1e052063dd31] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 71700: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 71700 monitored DFI WRDATA 0xc8c1c6293385feab85922afccd009c373aa2f6b2e9d1d106803c9c2abb0cb4f3, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 71700: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xc8c1c6293385feab85922afccd009c373aa2f6b2e9d1d106803c9c2abb0cb4f3] is equal
+UVM_INFO ./dfi_agent/dfi_monitor.svh(525) @ 72700: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 72700 monitored DFI p0 cmd ACTIVATE at bank 2, row 0x1
+UVM_INFO ./dfi_agent/dfi_monitor.svh(80) @ 72700: uvm_test_top.env.dfi_mon [tRRD MET] [DB]Time interval between ACTIVATE and ACTIVATE is 66 ns >= tRRD= 10 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(119) @ 72700: uvm_test_top.env.dfi_mon [tRC MET] [SB]Time interval between ACTIVATE and ACTIVATE is 518 ns >= tRC= 63 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(108) @ 72700: uvm_test_top.env.dfi_mon [tFAW MET] [FAW]Current Four Activate Bank window is 262 ns >= tFAW= 30 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 72700: uvm_test_top.env.dfi_mon [DFI tRP_ns MET] [DFI]Time interval between PRECHARGE and ACTIVATE is 26 ns >= tRP_ns= 21 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 75100: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 75100 monitored DFI p2 cmd WRITE at bank 2, col 0x180
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 75100: uvm_test_top.env.dfi_mon [DFI tRCD_ns MET] [DFI]Time interval between ACTIVATE and WRITE is 24 ns >= tRCD_ns= 18 ns.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 75300: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 75100 monitored DFI LPDDR4 cmd WRITE at bank 2,col 0x180
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 76100: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 76100 monitored DFI p2 cmd WRITE at bank 2, col 0x390
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 76100: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and WRITE is 5 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 76300: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 76100 monitored DFI LPDDR4 cmd WRITE at bank 2,col 0x390
+UVM_INFO ./dfi_agent/dfi_monitor.svh(523) @ 76700: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 76700 monitored DFI p0 cmd PRECHARGE at bank 3
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 76700: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and PRECHARGE is 3 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 77100: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 77100 monitored DFI WRDATA 0xb74ad17a6e31355ca66e027ebe8b94061e3d3ea6ef79b9e6385e2d3c7a46e174, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 77100: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xb74ad17a6e31355ca66e027ebe8b94061e3d3ea6ef79b9e6385e2d3c7a46e174] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 77300: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 77300 monitored DFI WRDATA 0x9be37438d3431160d29ef7cc73adecccbc90f2cacdbede919a8704208f9c4ad2, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 77300: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0x9be37438d3431160d29ef7cc73adecccbc90f2cacdbede919a8704208f9c4ad2] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 78100: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 78100 monitored DFI WRDATA 0xd1d957627950ae656f77a23030e1115bd856d692d6aefd2ed01457e8cfd3b57a, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 78100: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xd1d957627950ae656f77a23030e1115bd856d692d6aefd2ed01457e8cfd3b57a] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 78300: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 78300 monitored DFI WRDATA 0xff79846fb89378af94c24f976d8c4f650e3ecb09c39c8721869081e87d1d742c, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 78300: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xff79846fb89378af94c24f976d8c4f650e3ecb09c39c8721869081e87d1d742c] is equal
+UVM_INFO ./dfi_agent/dfi_monitor.svh(525) @ 79300: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 79300 monitored DFI p0 cmd ACTIVATE at bank 3, row 0x1
+UVM_INFO ./dfi_agent/dfi_monitor.svh(80) @ 79300: uvm_test_top.env.dfi_mon [tRRD MET] [DB]Time interval between ACTIVATE and ACTIVATE is 66 ns >= tRRD= 10 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(119) @ 79300: uvm_test_top.env.dfi_mon [tRC MET] [SB]Time interval between ACTIVATE and ACTIVATE is 520 ns >= tRC= 63 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(108) @ 79300: uvm_test_top.env.dfi_mon [tFAW MET] [FAW]Current Four Activate Bank window is 264 ns >= tFAW= 30 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 79300: uvm_test_top.env.dfi_mon [DFI tRP_ns MET] [DFI]Time interval between PRECHARGE and ACTIVATE is 26 ns >= tRP_ns= 21 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 81700: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 81700 monitored DFI p2 cmd WRITE at bank 3, col 0x180
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 81700: uvm_test_top.env.dfi_mon [DFI tRCD_ns MET] [DFI]Time interval between ACTIVATE and WRITE is 24 ns >= tRCD_ns= 18 ns.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 81900: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 81700 monitored DFI LPDDR4 cmd WRITE at bank 3,col 0x180
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 82700: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 82700 monitored DFI p2 cmd WRITE at bank 3, col 0x390
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 82700: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and WRITE is 5 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 82900: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 82700 monitored DFI LPDDR4 cmd WRITE at bank 3,col 0x390
+UVM_INFO ./dfi_agent/dfi_monitor.svh(523) @ 83300: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 83300 monitored DFI p0 cmd PRECHARGE at bank 4
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 83300: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and PRECHARGE is 3 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 83700: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 83700 monitored DFI WRDATA 0xb46f0e6a1481a30f99ae833661cd2ffea555ac7c5759a91d35fed4f64a1d13dc, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 83700: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xb46f0e6a1481a30f99ae833661cd2ffea555ac7c5759a91d35fed4f64a1d13dc] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 83900: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 83900 monitored DFI WRDATA 0x96f3cc185e9180fbc5531e9288c1ea835019872759d4c86b8aa6c8935b76d675, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 83900: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0x96f3cc185e9180fbc5531e9288c1ea835019872759d4c86b8aa6c8935b76d675] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 84700: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 84700 monitored DFI WRDATA 0xe7a8994c866eb17362274f4df407c13cfa9cf8b898c8124a993b000c5a381a87, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 84700: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xe7a8994c866eb17362274f4df407c13cfa9cf8b898c8124a993b000c5a381a87] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 84900: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 84900 monitored DFI WRDATA 0xf9c182e9603b8d5ed14dbb08fa40e5fa3b6ae2441160dd8687c3bf96add1cc65, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 84900: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xf9c182e9603b8d5ed14dbb08fa40e5fa3b6ae2441160dd8687c3bf96add1cc65] is equal
+UVM_INFO ./dfi_agent/dfi_monitor.svh(525) @ 85900: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 85900 monitored DFI p0 cmd ACTIVATE at bank 4, row 0x1
+UVM_INFO ./dfi_agent/dfi_monitor.svh(80) @ 85900: uvm_test_top.env.dfi_mon [tRRD MET] [DB]Time interval between ACTIVATE and ACTIVATE is 66 ns >= tRRD= 10 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(119) @ 85900: uvm_test_top.env.dfi_mon [tRC MET] [SB]Time interval between ACTIVATE and ACTIVATE is 522 ns >= tRC= 63 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(108) @ 85900: uvm_test_top.env.dfi_mon [tFAW MET] [FAW]Current Four Activate Bank window is 264 ns >= tFAW= 30 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 85900: uvm_test_top.env.dfi_mon [DFI tRP_ns MET] [DFI]Time interval between PRECHARGE and ACTIVATE is 26 ns >= tRP_ns= 21 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 88300: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 88300 monitored DFI p2 cmd WRITE at bank 4, col 0x180
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 88300: uvm_test_top.env.dfi_mon [DFI tRCD_ns MET] [DFI]Time interval between ACTIVATE and WRITE is 24 ns >= tRCD_ns= 18 ns.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 88500: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 88300 monitored DFI LPDDR4 cmd WRITE at bank 4,col 0x180
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 89300: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 89300 monitored DFI p2 cmd WRITE at bank 4, col 0x390
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 89300: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and WRITE is 5 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 89500: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 89300 monitored DFI LPDDR4 cmd WRITE at bank 4,col 0x390
+UVM_INFO ./dfi_agent/dfi_monitor.svh(523) @ 89900: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 89900 monitored DFI p0 cmd PRECHARGE at bank 5
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 89900: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and PRECHARGE is 3 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 90300: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 90300 monitored DFI WRDATA 0x9d4f5504c9024f32a5e45cc48d8e6be915bc2ffa915136acf072f0f8680c7c46, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 90300: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0x9d4f5504c9024f32a5e45cc48d8e6be915bc2ffa915136acf072f0f8680c7c46] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 90500: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 90500 monitored DFI WRDATA 0xbf1c06730a820a304cafbf8c6bbed81c0d96df1dd70219878d87829b548861e6, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 90500: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xbf1c06730a820a304cafbf8c6bbed81c0d96df1dd70219878d87829b548861e6] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 91300: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 91300 monitored DFI WRDATA 0xd25d40a10f3849966f877fa9a6d6c8a463a6a6d711b6702ad43cdcc763fff64b, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 91300: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xd25d40a10f3849966f877fa9a6d6c8a463a6a6d711b6702ad43cdcc763fff64b] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 91500: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 91500 monitored DFI WRDATA 0xf8503150f35fed1bd498771c01f74187b824b020042eb3ea1f454e9ba9c73d1f, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 91500: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xf8503150f35fed1bd498771c01f74187b824b020042eb3ea1f454e9ba9c73d1f] is equal
+UVM_INFO ./dfi_agent/dfi_monitor.svh(525) @ 92500: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 92500 monitored DFI p0 cmd ACTIVATE at bank 5, row 0x1
+UVM_INFO ./dfi_agent/dfi_monitor.svh(80) @ 92500: uvm_test_top.env.dfi_mon [tRRD MET] [DB]Time interval between ACTIVATE and ACTIVATE is 66 ns >= tRRD= 10 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(119) @ 92500: uvm_test_top.env.dfi_mon [tRC MET] [SB]Time interval between ACTIVATE and ACTIVATE is 524 ns >= tRC= 63 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(108) @ 92500: uvm_test_top.env.dfi_mon [tFAW MET] [FAW]Current Four Activate Bank window is 264 ns >= tFAW= 30 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 92500: uvm_test_top.env.dfi_mon [DFI tRP_ns MET] [DFI]Time interval between PRECHARGE and ACTIVATE is 26 ns >= tRP_ns= 21 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 94900: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 94900 monitored DFI p2 cmd WRITE at bank 5, col 0x180
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 94900: uvm_test_top.env.dfi_mon [DFI tRCD_ns MET] [DFI]Time interval between ACTIVATE and WRITE is 24 ns >= tRCD_ns= 18 ns.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 95100: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 94900 monitored DFI LPDDR4 cmd WRITE at bank 5,col 0x180
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 95900: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 95900 monitored DFI p2 cmd WRITE at bank 5, col 0x390
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 95900: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and WRITE is 5 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 96100: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 95900 monitored DFI LPDDR4 cmd WRITE at bank 5,col 0x390
+UVM_INFO ./dfi_agent/dfi_monitor.svh(523) @ 96500: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 96500 monitored DFI p0 cmd PRECHARGE at bank 6
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 96500: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and PRECHARGE is 3 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 96900: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 96900 monitored DFI WRDATA 0xab211dbde8324f3b305642c3359d40c5e64a5ec32adb9599d24cb762113f85c2, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 96900: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xab211dbde8324f3b305642c3359d40c5e64a5ec32adb9599d24cb762113f85c2] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 97100: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 97100 monitored DFI WRDATA 0xbfad4f098ed9761adad350dc506e98a78c80cc607aa414ea1f0b4c02d1935fbd, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 97100: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xbfad4f098ed9761adad350dc506e98a78c80cc607aa414ea1f0b4c02d1935fbd] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 97900: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 97900 monitored DFI WRDATA 0xe98163072f20497af74c550c300e783bbfb372f1c6c0e6b10dde48c5a295a7a4, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 97900: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xe98163072f20497af74c550c300e783bbfb372f1c6c0e6b10dde48c5a295a7a4] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 98100: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 98100 monitored DFI WRDATA 0xdee2609a22c6e7ed232c23a8c196e585a3240532f171454643bb78dbcf469e53, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 98100: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xdee2609a22c6e7ed232c23a8c196e585a3240532f171454643bb78dbcf469e53] is equal
+UVM_INFO ./dfi_agent/dfi_monitor.svh(525) @ 99100: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 99100 monitored DFI p0 cmd ACTIVATE at bank 6, row 0x1
+UVM_INFO ./dfi_agent/dfi_monitor.svh(80) @ 99100: uvm_test_top.env.dfi_mon [tRRD MET] [DB]Time interval between ACTIVATE and ACTIVATE is 66 ns >= tRRD= 10 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(119) @ 99100: uvm_test_top.env.dfi_mon [tRC MET] [SB]Time interval between ACTIVATE and ACTIVATE is 526 ns >= tRC= 63 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(108) @ 99100: uvm_test_top.env.dfi_mon [tFAW MET] [FAW]Current Four Activate Bank window is 264 ns >= tFAW= 30 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 99100: uvm_test_top.env.dfi_mon [DFI tRP_ns MET] [DFI]Time interval between PRECHARGE and ACTIVATE is 26 ns >= tRP_ns= 21 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 101500: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 101500 monitored DFI p2 cmd WRITE at bank 6, col 0x180
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 101500: uvm_test_top.env.dfi_mon [DFI tRCD_ns MET] [DFI]Time interval between ACTIVATE and WRITE is 24 ns >= tRCD_ns= 18 ns.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 101700: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 101500 monitored DFI LPDDR4 cmd WRITE at bank 6,col 0x180
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 102500: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 102500 monitored DFI p2 cmd WRITE at bank 6, col 0x390
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 102500: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and WRITE is 5 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 102700: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 102500 monitored DFI LPDDR4 cmd WRITE at bank 6,col 0x390
+UVM_INFO ./dfi_agent/dfi_monitor.svh(523) @ 103100: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 103100 monitored DFI p0 cmd PRECHARGE at bank 7
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 103100: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and PRECHARGE is 3 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 103500: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 103500 monitored DFI WRDATA 0xa417e7a974a483989933c6d71b38e58a89e6d5eebe3b393352cd19f9d2e584ee, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 103500: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xa417e7a974a483989933c6d71b38e58a89e6d5eebe3b393352cd19f9d2e584ee] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 103700: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 103700 monitored DFI WRDATA 0xb5968af905adf098cea5a889c3b54fde66a4cd7f6587995de8d11f781e15a235, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 103700: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xb5968af905adf098cea5a889c3b54fde66a4cd7f6587995de8d11f781e15a235] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 104500: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 104500 monitored DFI WRDATA 0xc2597cc1f63907fba8852d1e35d95779feb8d5242f2919e7359eb8c35f8a19fd, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 104500: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xc2597cc1f63907fba8852d1e35d95779feb8d5242f2919e7359eb8c35f8a19fd] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 104700: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 104700 monitored DFI WRDATA 0xdb2208f0ba4a81db06f9c7e9fff35f40605b739f171103ac347ca492b9b90b07, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 104700: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xdb2208f0ba4a81db06f9c7e9fff35f40605b739f171103ac347ca492b9b90b07] is equal
+UVM_INFO ./dfi_agent/dfi_monitor.svh(525) @ 105700: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 105700 monitored DFI p0 cmd ACTIVATE at bank 7, row 0x1
+UVM_INFO ./dfi_agent/dfi_monitor.svh(80) @ 105700: uvm_test_top.env.dfi_mon [tRRD MET] [DB]Time interval between ACTIVATE and ACTIVATE is 66 ns >= tRRD= 10 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(119) @ 105700: uvm_test_top.env.dfi_mon [tRC MET] [SB]Time interval between ACTIVATE and ACTIVATE is 528 ns >= tRC= 63 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(108) @ 105700: uvm_test_top.env.dfi_mon [tFAW MET] [FAW]Current Four Activate Bank window is 264 ns >= tFAW= 30 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 105700: uvm_test_top.env.dfi_mon [DFI tRP_ns MET] [DFI]Time interval between PRECHARGE and ACTIVATE is 26 ns >= tRP_ns= 21 ns.
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 108100: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 108100 monitored DFI p2 cmd WRITE at bank 7, col 0x180
+UVM_INFO ./dfi_agent/dfi_monitor.svh(135) @ 108100: uvm_test_top.env.dfi_mon [DFI tRCD_ns MET] [DFI]Time interval between ACTIVATE and WRITE is 24 ns >= tRCD_ns= 18 ns.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 108300: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 108100 monitored DFI LPDDR4 cmd WRITE at bank 7,col 0x180
+UVM_INFO ./dfi_agent/dfi_monitor.svh(622) @ 109100: uvm_test_top.env.dfi_mon [dfi_monitor] Time: 109100 monitored DFI p2 cmd WRITE at bank 7, col 0x390
+UVM_INFO ./dfi_agent/dfi_monitor.svh(127) @ 109100: uvm_test_top.env.dfi_mon [DFI tCCD MET] [DFI]Time interval between WRITE and WRITE is 5 nCK >= tCCD= 2 nCK.
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(207) @ 109300: uvm_test_top.env.lpddr4_agent.monitor [dfi_lpddr4_monitor] Time: 109100 monitored DFI LPDDR4 cmd WRITE at bank 7,col 0x390
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 110100: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 110100 monitored DFI WRDATA 0xbc78cab77a26c95e0f6cd773af9a6d770ee0ecf4d9969c222182761fdc000f03, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 110100: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xbc78cab77a26c95e0f6cd773af9a6d770ee0ecf4d9969c222182761fdc000f03] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 110300: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 110300 monitored DFI WRDATA 0x8ed839d9dacacf10312203493f5d6cb00818c6204431f59530df1b5509f4dfe4, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 110300: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0x8ed839d9dacacf10312203493f5d6cb00818c6204431f59530df1b5509f4dfe4] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 111100: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 111100 monitored DFI WRDATA 0xc8d71b7ec16a0cc7fa0ab938e9b88a8454ba0253a89a8a190795e380a1d6456a, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 111100: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xc8d71b7ec16a0cc7fa0ab938e9b88a8454ba0253a89a8a190795e380a1d6456a] is equal
+UVM_INFO ./dfi_lpddr4_agent/dfi_lpddr4_monitor.svh(311) @ 111300: uvm_test_top.env.lpddr4_agent.monitor [DFI WRITE DATA SENT] Time: 111300 monitored DFI WRDATA 0xd3ff41a1544858add999149c56b23e50dbde4a778c8db03961327798667781a2, DM 0x0
+UVM_INFO ./memory_controller_top/mc_top_checker.svh(88) @ 111300: uvm_test_top.env.mc_top_chker [WDATA CMPSUCD] Compared Success! [we,data]=[1,0xd3ff41a1544858add999149c56b23e50dbde4a778c8db03961327798667781a2] is equal
+UVM_INFO ./memory_controller_top/mc_top_basic_test.svh(14) @ 156900: uvm_test_top.env.virt_sqr@@mc_top_basic_virtual_sequence [mc_top_basic_virtual_sequence] =====================FINISHED=====================
+UVM_INFO /home/lab.apps/vlsiapps_new//vcs/current/etc/uvm/base/uvm_objection.svh(1274) @ 156900: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+
+--- UVM Report Summary ---
+
+Quit count :     0 of     1
+** Report counts by severity
+UVM_INFO :  607
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[CMD CMPSUCD]     2
+[DFI WRITE DATA SENT]    64
+[DFI tCCD MET]    31
+[DFI tRCD_ns MET]    16
+[DFI tRP_ns MET]    16
+[RNTST]     1
+[TEST_DONE]     1
+[WDATA CMPSUCD]    64
+[dfi_lpddr4_monitor]    32
+[dfi_monitor]    64
+[dla_cmd_sequence]     6
+[dla_driver]   132
+[dla_monitor]   132
+[mc_top_basic_virtual_sequence]     2
+[tFAW MET]    12
+[tRC MET]    16
+[tRRD MET]    16
+$finish called from file "/home/lab.apps/vlsiapps_new//vcs/current/etc/uvm/base/uvm_root.svh", line 437.
+$finish at simulation time               156900
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 1569000 ps
+CPU Time:      0.500 seconds;       Data structure size:   1.0Mb
+Mon Oct 10 23:46:29 2022
