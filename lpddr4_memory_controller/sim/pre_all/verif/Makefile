@@ -26,6 +26,10 @@ sim_mc_top:
 	vcs -full64  -sverilog -f ./memory_controller_top/tb_top.f  -dpi -ntb_opts uvm -debug_pp -timescale=1ns/10ps
 	$ ./simv +UVM_TR_RECORD +UVM_VERBOSITY=HIGH +UVM_TESTNAME=mc_top_basic_test
 
+sim_dla2mem:	clean
+	vcs -full64  -sverilog -f ./dla2mem/tb_top.f  -dpi -ntb_opts uvm -debug_pp -timescale=1ns/10ps
+	$ ./simv +UVM_TR_RECORD +UVM_VERBOSITY=HIGH +UVM_TESTNAME=mc_top_basic_test
+
 sim_core:
 	vcs -full64  -sverilog -f ./core/core_tb.f  -dpi -ntb_opts uvm -debug_pp -timescale=1ns/10ps
 	$ ./simv +UVM_TR_RECORD +UVM_VERBOSITY=HIGH +UVM_TESTNAME=core_basic_test
