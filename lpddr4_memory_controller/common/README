@@ -1,0 +1,19 @@
+These are library files created by John Archambeault in the beginning of 2007.
+
+They are (from lowest level to highest).
+
+rrarb.v - round robin arbiter
+
+syncfifo_mem1r1w.v - RTL encoding of a 1 read 1 write RAM.  Can be
+                     replaced with RAM equivalent (FPGA or ASIC).
+
+syncfifo_reg.v - Generic synchronous (rd clk = wr clk) FIFO. FF Based.
+syncfifo_ram.v - Generic synchronous (rd clk = wr clk) FIFO. RAM Based
+syncfifo.v - Synchronous FIFO that supports a small syncfifo_reg.sv for Head and a deeper syncfifo_ram.sv
+
+levelsync.v - Simple double FF for single signals crossing clock domains.
+              Has a reset value.
+
+levelsync_sr.v - Same as levelsync, but with reset and set.
+
+asyncfifo.v - Async FIFO. RAM Based
