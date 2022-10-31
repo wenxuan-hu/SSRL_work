@@ -55,29 +55,28 @@ axi2native u_axi2native (
     .axi_r_payload_data      (axi_if.r_if.data),
     .axi_r_payload_id        (axi_if.r_if.id),
 
-    .cmd_valid                      (nat_if.native_cmd_valid),
-    .cmd_ready                      (nat_if.native_cmd_ready),
-    .cmd_first                      (nat_if.native_cmd_first),
-    .cmd_last                       (nat_if.native_cmd_last),
-    //.cmd_payload_mw                 (nat_if.native_cmd_payload_mw),
-    .cmd_payload_we                 (nat_if.native_cmd_payload_we),
-    .cmd_payload_addr               (nat_if.native_cmd_payload_addr),
+    .cmd_valid                      (native_if.native_cmd_valid),
+    .cmd_ready                      (native_if.native_cmd_ready),
+    .cmd_first                      (native_if.native_cmd_first),
+    .cmd_last                       (native_if.native_cmd_last),
+    .cmd_payload_mw                 (native_if.native_cmd_payload_mw),
+    .cmd_payload_we                 (native_if.native_cmd_payload_we),
+    .cmd_payload_addr               (native_if.native_cmd_payload_addr),
 
-    .wdata_valid                    (nat_if.wdata_valid),
-    .wdata_ready                    (nat_if.wdata_ready),
-    .wdata_first                    (nat_if.wdata_first),
-    .wdata_last                     (nat_if.wdata_last),
-    .wdata_payload_data             (nat_if.wdata_payload_data),
-    .wdata_payload_we               (nat_if.wdata_payload_we),
+    .wdata_valid                    (native_if.wdata_valid),
+    .wdata_ready                    (native_if.wdata_ready),
+    .wdata_first                    (native_if.wdata_first),
+    .wdata_last                     (native_if.wdata_last),
+    .wdata_payload_data             (native_if.wdata_payload_data),
+    .wdata_payload_we               (native_if.wdata_payload_we),
     
-    .rdata_valid                    (nat_if.rdata_valid),
-    .rdata_ready                    (nat_if.rdata_ready),
-    .rdata_first                    (nat_if.rdata_first),
-    .rdata_last                     (nat_if.rdata_last),
-    .rdata_payload_data             (nat_if.rdata_payload_data),
+    .rdata_valid                    (native_if.rdata_valid),
+    .rdata_ready                    (native_if.rdata_ready),
+    .rdata_first                    (native_if.rdata_first),
+    .rdata_last                     (native_if.rdata_last),
+    .rdata_payload_data             (native_if.rdata_payload_data),
     .sys_clk                 (clk),
     .sys_rst                 (rst)
 );
 
-    assign nat_if.native_cmd_payload_mw = 1'b1;
 endmodule

@@ -8,13 +8,17 @@ module mc_top(
     input logic [31:0]    i_ahb_hwdata,
     input logic [1:0]         i_ahb_htrans,
     input logic [2:0]     i_ahb_hsize,
-    input logic           i_ahb_hsel,
+    input logic           i_ahb_hbusreq,
     input logic [2:0]     i_ahb_hburst,
     input logic           i_ahb_hreadyin,
     output logic           o_ahb_hready,
     output logic [31:0]    o_ahb_hrdata,
     output logic [1:0]     o_ahb_hresp,
-    output logic           o_ahb_hgrant
+    output logic           o_ahb_hgrant,
+
+    output logic           o_initialize_done,
+    output logic [1:0] o_native_fifo_clr,
+    output logic       o_sys_rst_ovr
 );
  //CSR
     logic [1:0] mul_rd_phase_cfg;
@@ -57,7 +61,7 @@ mc_ahb_csr u_mc_ahb_csr (
     .i_ahb_extrst               (ahb_extrst),
     .i_haddr                    (i_ahb_haddr),
     .i_hwrite                   (i_ahb_hwrite),
-    .i_hsel                     (i_ahb_hsel),
+    .i_hbusreq                  (i_ahb_hbusreq),
     .i_hreadyin                 (i_ahb_hreadyin),
     .i_hwdata                   (i_ahb_hwdata),
     .i_htrans                   (i_ahb_htrans),
@@ -93,7 +97,10 @@ mc_ahb_csr u_mc_ahb_csr (
     .o_crb_WRITE_LATENCY_cfg    (crb_WRITE_LATENCY_cfg),
     .o_dfi_rddata_en_latency_cfg(dfi_rddata_en_latency_cfg),
     .o_dfi_wrdata_en_latency_cfg(dfi_wrdata_en_latency_cfg),
-    .o_dfi_wdqs_preamble_cfg    (dfi_wdqs_preamble_cfg)
+    .o_dfi_wdqs_preamble_cfg    (dfi_wdqs_preamble_cfg),
+    .o_initialize_done    (o_initialize_done ),
+    .o_native_fifo_clr    (o_native_fifo_clr),
+    .o_sys_rst_ovr        (o_sys_rst_ovr)
 );
 mc_core u_mc_core (
     .native_if_0              (native_if_0),

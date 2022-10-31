@@ -34,6 +34,7 @@ parameter             BUF_BAL     =     'h45;
 // **_B    bit mask in certain field
 parameter             DLA_WRITE  =    2'b10; 
 parameter             DLA_READ   =   2'b01; 
+parameter              DLA_ADDR_W   =   'd30;
 
 // ----------------------------------------------------
 //ddr

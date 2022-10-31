@@ -1,55 +1,5 @@
 //  ******************************************************
 //  Author            : Wenxuan Hu
-//  Last modified     : 2022-08-05 22:22
-//  Email             : huwe0427@uw.edu
-//  Filename          : defines.v
-//  Description       :
-//    Copyright [2021] <Copyright Wenxuan Hu>
-//  ******************************************************
-
-
-
-// ----------------------------------------------------
-// dla
-`define                DLA_ADDR_FIELD     29:0   
-`define                DLA_CMD_FIELD     63:0   
-`define                BURST_LEN_FIELD    61:54   
-`define                DRT_FIELD    63:62   
-parameter              MOSI_DATA_W   =   'd256;
-parameter              FIFO_DEPTH   =   'd64;
-parameter              FIFO_ADDR_W  =   6;
-
-
-parameter             BUF_BAL     =     'h45;
-
-
-
-// ----------------------------------------------------
-// bit mask
-
-//parameter              CRD_BIT_MASK = {{33{8'd0}},  {8'b10000000} ,{14{8'd0}}};
-//parameter              ALCT_BIT_MASK = {{33{8'd0}},  {8'b00000001} ,{14{8'd0}}};
-
-// ----------------------------------------------------
-// **_B    bit mask in certain field
-parameter             DLA_WRITE  =    2'b10; 
-parameter             DLA_READ   =   2'b01; 
-parameter              DLA_ADDR_W   =   'd30;
-
-// ----------------------------------------------------
-//ddr
-
-parameter              DDR_DATA_W   =   'd256;
-parameter              DDR_ADDR_W   =   'd26;
-parameter              DDR_MASK_W   =   'd32;
-`define                DDR_ADDR_FIELD     25:0   
-
-
-
-
-
-//  ******************************************************
-//  Author            : Wenxuan Hu
 //  Last modified     : 2022-08-05 22:50
 //  Email             : huwe0427@uw.edu
 //  Filename          : mosi_native.sv
@@ -167,6 +117,8 @@ logic [1:0]  rd_buffer_pipe;
 // miso signal must be asserted after a write burst as done signal
 logic write_done;
 
+
+
 // ----------------------------------------------------
 //clock gate
 clk_gate  clk_gate_inst(
@@ -249,7 +201,7 @@ always_comb begin
         nxt_state = cur_state;
     end
     COMMAND : begin
-      if(dla_len[0] || (&dla_addr[0]))      //TODO
+      if(dla_len[0] || (&dla_addr[5:0]))      //TODO
         nxt_state = EXCP;
       else if(dla_drt ==  DLA_WRITE)
         nxt_state = WRITE;
@@ -364,7 +316,7 @@ always_ff @(posedge clk or negedge rst_n)  begin
   end
   else if(cur_state == COMMAND) begin
     //cur_addr  <=  dla_addr[DDR_ADDR_W-1:0];
-    cur_addr  <=  {dla_addr[DLA_ADDR_W-4:1]};
+    cur_addr  <=  {2'b00, dla_addr[DLA_ADDR_W-1:6]};
   end
   else  if ((cur_state  ==  WRITE ) &&(native.ncmd_ready_i  & ncmd_valid)) begin
     //cur_addr  <=  cur_addr  + 'd64;
@@ -581,7 +533,7 @@ always_ff @(posedge clk or negedge rst_n)  begin
   else  if (cur_state== EXCP) begin
       if(dla_len[0])
         irq[0] <=  1'b1;
-      if(&dla_addr[0])
+      if(&dla_addr[5:0])
         irq[1] <=  1'b1;
   end
   else  if(clr_i)
