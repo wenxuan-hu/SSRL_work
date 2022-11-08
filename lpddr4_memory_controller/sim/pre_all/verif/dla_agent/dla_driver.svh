@@ -43,10 +43,14 @@
 //          this.dla_write_cmd(req);
 //          this.dla_write_data(req);
 //        join
-       begin 
+        if (req.we==2'd01) begin 
           this.dla_write_cmd(req);
           this.dla_write_data(req);
       end
+         else begin
+          this.dla_write_cmd(req);
+          //this.dla_read_data(req);
+           end
         void'($cast(rsp, req.clone()));
         rsp.rsp = 1;
         rsp.set_sequence_id(req.get_sequence_id());
@@ -103,21 +107,6 @@
       
 
 
-//        @(posedge intf.clk)
-//        intf.drv_ck.wdata_valid<= 1'b1;
-//	      intf.drv_ck.wdata_payload_data<= t.data[255:0];
-//        intf.drv_ck.wdata_payload_we<= ~t.data_mask[31:0];
-//        @(negedge intf.clk);
-//        wait(intf.wdata_ready===1'b1);
-//        `uvm_info(get_type_name(), $sformatf("MOSI Nort %h sent WDATA [data=[0x%0h]",t.channel,t.data[255:0]), UVM_HIGH)
-//        @(posedge intf.clk)
-//        intf.drv_ck.wdata_valid<= 1'b1;
-//        intf.drv_ck.wdata_payload_data<= t.data[511:256];
-//        intf.drv_ck.wdata_payload_we<= ~t.data_mask[63:32];
-//        @(negedge intf.clk);
-//        wait(intf.wdata_ready===1'b1);
-//        `uvm_info(get_type_name(), $sformatf("MOSI Port %h sent WDATA [data=[0x%0h]",t.channel,t.data[511:256]), UVM_HIGH)
-        //repeat(t.dla_idles) dla_wdata_idle();
         repeat(100) dla_wdata_idle();
       end
     endtask
@@ -131,6 +120,12 @@
     endtask
 
     task dla_wdata_idle();
+      @(posedge intf.clk);
+        intf.drv_cb.mosi_data_i <= 0;
+        intf.drv_cb.mosi_valid_i<= 0;
+	      intf.drv_cb.miso_ready_i  <= 1'b1;
+    endtask
+    task dla_rdata_idle();
       @(posedge intf.clk);
         intf.drv_cb.mosi_data_i <= 0;
         intf.drv_cb.mosi_valid_i<= 0;

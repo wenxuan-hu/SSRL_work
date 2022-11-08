@@ -1,0 +1,122 @@
+# Preference setting overrides
+gui_create_pref_key -category {Globals} -key {load_detail_for_funcov} -value_type {bool} -value {false}
+
+# State setting overrides
+gui_state_default_create -off -ini
+gui_set_state_value -category Globals -key recent_databases -value {{gui_open_db -file /home/huwe0427/work/SSRL_git/SSRL_work/lpddr4_memory_controller/sim/pre_all/verif/vcdplus.vpd -design V1} {gui_open_db -file /home/huwe0427/work/ddr_top/lpddr4_memory_controller/sim/pre_all/verif/vcdplus.vpd -design V1} {gui_open_db -file /home/huwe0427/work/ucie/dv/fifo_new/my_case0/dump.vpd -design V1} {gui_open_db -file my_case0/dump.vpd} {gui_open_db -file /home/huwe0427/work/ucie/dv/fifo/my_case0/dump.vpd -design V1}}
+gui_set_state_value -category Layout -key child_assertion_size_x -value 2559
+gui_set_state_value -category Layout -key child_assertion_size_y -value 148
+gui_set_state_value -category Layout -key child_console_size_x -value 295
+gui_set_state_value -category Layout -key child_console_size_y -value 179
+gui_set_state_value -category Layout -key child_data_coltype -value 133
+gui_set_state_value -category Layout -key child_data_colvalue -value 45
+gui_set_state_value -category Layout -key child_data_colvariable -value 222
+gui_set_state_value -category Layout -key child_data_size_x -value 401
+gui_set_state_value -category Layout -key child_data_size_y -value 836
+gui_set_state_value -category Layout -key child_hier_col3 -value {-1}
+gui_set_state_value -category Layout -key child_hier_colhier -value 326
+gui_set_state_value -category Layout -key child_hier_colpd -value 0
+gui_set_state_value -category Layout -key child_hier_coltype -value 70
+gui_set_state_value -category Layout -key child_hier_size_x -value 378
+gui_set_state_value -category Layout -key child_hier_size_y -value 836
+gui_set_state_value -category Layout -key child_list_down -value 239
+gui_set_state_value -category Layout -key child_list_right -value 914
+gui_set_state_value -category Layout -key child_list_up -value 549
+gui_set_state_value -category Layout -key child_source_docknewline -value false
+gui_set_state_value -category Layout -key child_source_pos_x -value {-2}
+gui_set_state_value -category Layout -key child_source_pos_y -value {-15}
+gui_set_state_value -category Layout -key child_source_size_x -value 1143
+gui_set_state_value -category Layout -key child_source_size_y -value 831
+gui_set_state_value -category Layout -key child_watch_size_x -value 2559
+gui_set_state_value -category Layout -key child_watch_size_y -value 146
+gui_set_state_value -category Layout -key child_wave_colname -value 267
+gui_set_state_value -category Layout -key child_wave_colvalue -value 286
+gui_set_state_value -category Layout -key child_wave_docknewline -value false
+gui_set_state_value -category Layout -key child_wave_left -value 557
+gui_set_state_value -category Layout -key child_wave_pos_x -value {-2}
+gui_set_state_value -category Layout -key child_wave_pos_y -value {-15}
+gui_set_state_value -category Layout -key child_wave_right -value 1357
+gui_set_state_value -category Layout -key child_wave_size_x -value 2564
+gui_set_state_value -category Layout -key child_wave_size_y -value 1104
+gui_set_state_value -category Layout -key cov_main_pos_y -value 65
+gui_set_state_value -category Layout -key cov_main_size_x -value 1490
+gui_set_state_value -category Layout -key cov_main_size_y -value 1013
+gui_set_state_value -category Layout -key main_pos_x -value 1
+gui_set_state_value -category Layout -key main_pos_y -value 38
+gui_set_state_value -category Layout -key main_size_x -value 1920
+gui_set_state_value -category Layout -key main_size_y -value 1134
+gui_set_state_value -category Layout -key stand_list_child_docknewline -value false
+gui_set_state_value -category Layout -key stand_list_child_pos_x -value {-2}
+gui_set_state_value -category Layout -key stand_list_child_pos_y -value {-15}
+gui_set_state_value -category Layout -key stand_list_child_size_x -value 1074
+gui_set_state_value -category Layout -key stand_list_child_size_y -value 818
+gui_set_state_value -category Layout -key stand_list_top_pos_y -value 65
+gui_set_state_value -category Layout -key stand_list_top_size_x -value 1569
+gui_set_state_value -category Layout -key stand_list_top_size_y -value 1021
+gui_set_state_value -category Layout -key stand_source_child_docknewline -value false
+gui_set_state_value -category Layout -key stand_source_child_pos_x -value {-2}
+gui_set_state_value -category Layout -key stand_source_child_pos_y -value {-15}
+gui_set_state_value -category Layout -key stand_source_child_size_x -value 1294
+gui_set_state_value -category Layout -key stand_source_child_size_y -value 710
+gui_set_state_value -category Layout -key stand_wave_child_docknewline -value false
+gui_set_state_value -category Layout -key stand_wave_child_pos_x -value {-2}
+gui_set_state_value -category Layout -key stand_wave_child_pos_y -value {-15}
+gui_set_state_value -category Layout -key stand_wave_child_size_x -value 1924
+gui_set_state_value -category Layout -key stand_wave_child_size_y -value 1010
+gui_set_state_value -category Layout -key stand_wave_top_pos_x -value 0
+gui_set_state_value -category Layout -key stand_wave_top_pos_y -value 66
+gui_set_state_value -category Layout -key stand_wave_top_size_x -value 1919
+gui_set_state_value -category Layout -key stand_wave_top_size_y -value 1162
+gui_create_state_key -category FindDialog -key m_pMatchCase -value_type bool -value false
+gui_create_state_key -category FindDialog -key m_pMatchWord -value_type bool -value false
+gui_create_state_key -category FindDialog -key m_pUseCombo -value_type string -value {}
+gui_create_state_key -category FindDialog -key m_pWrapAround -value_type bool -value true
+gui_create_state_key -category Widget_History -key Find|m_pFindFrame|m_pFindCombo -value_type string -value {write_resp_buffer_fifo_in_payload_id cmd_last rdata_first read_r_buffer_wrport_dat_w read_r_buffer_syncfifo_din}
+gui_create_state_key -category Widget_History -key TopLevel.1|qt_top_dock|&Edit|FindCombo -value_type string -value {write_resp_buffer_fifo_in_payload_id cmd_last rdata_first read_r_buffer_wrport_dat_w read_r_buffer_syncfifo_din}
+gui_create_state_key -category SearchDialog -key MatchCase -value_type bool -value false
+gui_create_state_key -category SearchDialog -key MatchWord -value_type bool -value true
+gui_create_state_key -category SearchDialog -key SearchMode -value_type string -value Wildcards
+gui_create_state_key -category SearchDialog -key UseCombo -value_type bool -value true
+gui_state_default_create -off
+
+# Begin command logging
+gui_open_db -file /home/huwe0427/work/SSRL_git/SSRL_work/lpddr4_memory_controller/sim/pre_all/verif/vcdplus.vpd -design V1
+gui_list_expand -id  Hier.1   mc_top_tb
+gui_list_select -id Hier.1 -current_item_name mc_top_tb.my_mosi_1 -current_item_type Scope  -selected  { mc_top_tb.my_mosi_1   }
+gui_list_select -id Hier.1 -current_item_name mc_top_tb.my_mosi_0 -current_item_type Scope  -selected  { mc_top_tb.my_mosi_0   }
+gui_list_select -id Data.1 -selected  { mc_top_tb.my_mosi_0.mosi_ready_o   }
+gui_list_select -id Data.1 -selected  { mc_top_tb.my_mosi_0.rst  mc_top_tb.my_mosi_0.clk  {mc_top_tb.my_mosi_0.mosi_data_i[255:0]}  {mc_top_tb.my_mosi_0.miso_data_o[255:0]}  mc_top_tb.my_mosi_0.mosi_valid_i  mc_top_tb.my_mosi_0.miso_valid_o  mc_top_tb.my_mosi_0.miso_ready_i  mc_top_tb.my_mosi_0.mosi_ready_o   }
+gui_open_window Wave
+gui_list_add -id Wave.1 -from Data.1 { mc_top_tb.my_mosi_0.rst mc_top_tb.my_mosi_0.clk {mc_top_tb.my_mosi_0.mosi_data_i[255:0]} {mc_top_tb.my_mosi_0.miso_data_o[255:0]} mc_top_tb.my_mosi_0.mosi_valid_i mc_top_tb.my_mosi_0.miso_valid_o mc_top_tb.my_mosi_0.miso_ready_i mc_top_tb.my_mosi_0.mosi_ready_o } -insertionbar
+gui_wv_zoom_timerange -id  Wave.1 0 445
+gui_marker_move -id  Wave.1 C1 126
+gui_marker_move -id  Wave.1 C1 160
+gui_marker_select -id  Wave.1 { C1 }
+gui_zoom -window Wave.1 -full
+gui_marker_move -id  Wave.1 C1 315631877596
+gui_list_select -id Wave.1 -selected  { mc_top_tb.my_mosi_0.rst   }
+gui_list_select -id Wave.1 -selected  { mc_top_tb.my_mosi_0.clk   }
+gui_marker_move -id  Wave.1 C1 354523048379
+gui_wv_zoom_timerange -id  Wave.1 345549738220 454001495886
+gui_zoom -window Wave.1 -full
+gui_marker_move -id  Wave.1 C1 810020518218
+gui_marker_move -id  Wave.1 C1 457741211668
+gui_marker_move -id  Wave.1 C1 368109438420
+gui_marker_move -id  Wave.1 C1 439790575916
+gui_marker_move -id  Wave.1 C1 412115096417
+gui_list_select -id Wave.1 -selected  { {mc_top_tb.my_mosi_0.mosi_data_i[255:0]}   }
+gui_list_select -id Wave.1 -selected  { mc_top_tb.my_mosi_0.clk   }
+gui_marker_move -id  Wave.1 C1 292444628496
+gui_get_drivers -id Wave.1 -signal mc_top_tb.my_mosi_0.clk
+gui_src_highlight_item -id Source.1 -lfrom 611 -idxfrom 24 -fileIdFrom 0 -lto 611 -idxto 31 -fileIdTo 0 -selection {phy_clk} -selectionId 0 -replace 0
+gui_show_drivers -signal  mc_top_tb.phy_clk
+gui_get_drivers -id Source.1 -signal mc_top_tb.phy_clk
+gui_src_highlight_item -id Source.1 -lfrom 1356 -idxfrom 46 -fileIdFrom 0 -lto 1356 -idxto 53 -fileIdTo 0 -selection {dfi_clk} -selectionId 0 -replace 0
+gui_show_drivers -signal  mc_top_tb.u_lpddr4_phy.u_dfi.dfi_clk
+gui_get_drivers -id Source.1 -signal mc_top_tb.u_lpddr4_phy.u_dfi.dfi_clk
+gui_src_highlight_item -id Source.1 -lfrom 12153 -idxfrom 25 -fileIdFrom 0 -lto 12153 -idxto 35 -fileIdTo 0 -selection {i_wr_clk_2} -selectionId 0 -replace 0
+gui_show_drivers -signal  mc_top_tb.u_lpddr4_phy.u_dfi.u_dfi_clk_ctrl.i_wr_clk_2
+gui_get_drivers -id Source.1 -signal mc_top_tb.u_lpddr4_phy.u_dfi.u_dfi_clk_ctrl.i_wr_clk_2
+gui_marker_move -id  Wave.1 C1 436798803291
+gui_zoom -window Wave.1 -full
+gui_close_window -window TopLevel.2

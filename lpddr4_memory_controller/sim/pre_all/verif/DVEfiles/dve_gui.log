@@ -1,0 +1,8 @@
+The design has assertions or cover properties.
+The assertion browser can be used to view them. Click on the assertion toolbar button or use the menu 'Window->Panes->Assertion' to open it.
+The file '/home/huwe0427/work/SSRL_git/SSRL_work/lpddr4_memory_controller/sim/pre_all/verif/vcdplus.vpd' was opened successfully.
+generic.sdb'
+1 driver (1 active statement) found for signal: mc_top_tb.my_mosi_0.clk
+1 driver (1 active statement) found for signal: mc_top_tb.phy_clk
+1 driver (1 active statement) found for signal: mc_top_tb.u_lpddr4_phy.u_dfi.dfi_clk
+1 driver (1 active statement) found for signal: mc_top_tb.u_lpddr4_phy.u_dfi.u_dfi_clk_ctrl.i_wr_clk_2

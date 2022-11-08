@@ -1,4 +1,9 @@
   //sequence
+
+// add event
+//event begin_write;
+//event begin_read;
+
   class dla_cmd_sequence extends uvm_sequence #(dla_trans);
     //rand bit reset;
     rand int ntrans;
@@ -17,15 +22,24 @@
     endfunction
 
     task body();
-      repeat(ntrans) send_trans();
-      // -- delay
-      //#200
+      //@mc_top_tb.begin_write;
+      #400000;
+      //repeat(ntrans) send_trans();
+// ----------------------------------------------------
+      send_trans('d256,2'd01);
+      #1000;
+      send_trans('d256,2'd10);
+
+
+// ----------------------------------------------------
     endtask
 
     task send_trans();
+      input [29:0] addr;
+      input [1:0] we;
       dla_trans rsp;
       dla_trans req;
-      `uvm_do_with(req,{local::channel >= 0 -> channel == local::channel;})
+      `uvm_do_with(req,{local::channel >= 0 -> channel == local::channel;  req.address == addr ; req.we== we; })
       //`uvm_do(req)
       `uvm_info(get_type_name(), req.sprint(), UVM_HIGH)
       get_response(rsp);
